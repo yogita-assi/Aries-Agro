@@ -3,20 +3,26 @@ import { StyleSheet } from "react-native";
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import TextArchivoBold from "../../shared/FontFamily/TextArchivoBold";
 import { boxStyle } from "../../shared/styles/screenStyles/common-style";
+import { FONT_TWENTY } from "../../shared/constants/FontConstant";
 
 export const signInStyle = StyleSheet.create({
     dashboardContainer: {
         flex: 1,
-        backgroundColor: WHITE
+        backgroundColor: WHITE,
+    },
+    imageLogo: {
+        height: 80,
+        width: 80,
+        alignSelf: "center",
     },
     parentView: {
         flex: 1,
+        marginVertical:20
     },
     mainSection: {
-        marginTop: 10,
+        marginTop: 10
     },
     headerWrapper: {
-        marginHorizontal: 14,
         fontFamily: ArchivoBold
     },
     textHeader: {
@@ -27,23 +33,25 @@ export const signInStyle = StyleSheet.create({
         marginHorizontal: 8
     },
     txtMobileNumber: {
-        fontSize: 15,
+        fontSize:FONT_TWENTY,
+        fontFamily: ArchivoBold,
         lineHeight: 30,
-        color: LIGHTGREY,
-        marginHorizontal: 8
+        color: BLACK,
+        alignSelf:"center",
+        marginVertical:20
     },
     inputTextView: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginHorizontal:25
     },
 
     profileContents: {
         width: widthPercentageToDP(18),
-        borderWidth: 1,
         borderRadius:5,
         color: LIGHTGREY,
         marginLeft: 25,
-        height: 35,
+        height: 50,
         marginHorizontal: 4,
     },
     mobileText: {
@@ -61,9 +69,8 @@ export const signInStyle = StyleSheet.create({
     },
     profileContent: {
         width: widthPercentageToDP(55),
-        borderWidth: 1,
         color: LIGHTGREY,
-        height: 35,
+        height: 50,
         marginRight: 60,
         borderRadius:5,
     },
@@ -120,7 +127,7 @@ export const signInStyle = StyleSheet.create({
         color: GREY,
         marginHorizontal: 25,
         marginVertical: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     viewElement: {
         margin: 20,
