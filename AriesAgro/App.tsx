@@ -1,28 +1,23 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-} from 'react-native';
-
-
+import { NavigationContainer } from '@react-navigation/native';
+import AuthGuard from './src/guards/AuthGuard';
+import AppRouter from './src/routes/AppRouter';
+import { MyContextProvider, useAuthContext } from './src/authContext/AuthContext';
+import { ModalProvider } from './src/modalContext/ModalContext';
 
 function App(): JSX.Element {
-
   return (
-    <SafeAreaView ><>
-      <Text>ARIS AGRO</Text>
-      </>
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthGuard>
+        <AppRouter />
+      </AuthGuard>
+    </NavigationContainer>
   );
 }
-
-
-
-export default App;
+export default () => (
+  <ModalProvider>
+    <MyContextProvider>
+      <App />
+    </MyContextProvider>
+  </ModalProvider>
+);
