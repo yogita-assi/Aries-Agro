@@ -19,6 +19,7 @@ import { signInStyle } from './signInStyle';
 import TopHeaderFixed from '../../shared/constants/TopHeaderFixed';
 import { LIGHTGREY, WHITE } from '../../shared/constants/color';
 import { StyleSheet } from "react-native"
+import { OTP_SCREEN } from '../../routes/Routes';
 
 const SignIn: React.FC = () => {
     const [formValue, setFormValue] = useState({ countryCode: '+91', phoneNumber: '' });
@@ -35,6 +36,7 @@ const SignIn: React.FC = () => {
         }
     }
     const onSubmit = async () => {
+        navigation.navigate(OTP_SCREEN)    
         const mobileNumber = formValue.phoneNumber;
         try {
             if ((!formValue.phoneNumber || formValue.phoneNumber.length <= 9)) {

@@ -3,18 +3,22 @@ import { View, StatusBar, Pressable, TextInput } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BLACK, WHITE, DARKBLUE, NAVYBULE, GREEN, BGRED, JPURPLE, } from "../../shared/constants/color";
-import TextArchivoBold from "../../shared/FontFamily/TextArchivoBold";
-import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from "react-native-confirmation-code-field";
 import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-import CustomFontText from "../../shared/FontFamily/CustomFontText";
+import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from "react-native-confirmation-code-field";
 import { otpstyles } from "./otpstyles";
-import { Text } from "@rneui/themed/dist/Text";
 import CountDown from "../auth/CountDown";
 import CustomButton from "../../components/button/CustomButton";
+import { Text } from "react-native-paper";
+import TextArchivoBold from "../../shared/fontfamily/TextArchivoBold";
+import CustomFontText from "../../shared/fontfamily/CustomFontText";
+import TopHeaderFixed from "../../shared/constants/TopHeaderFixed";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../guards/AuthNavigator";
 
 const OtpScreen = () => {
     const [errorMsg, setErrorMsg] = useState("");
+    const navigation:any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     // const mobileNumber = route.params?.mobileNumber || "";
     // const otp = route.params?.otp || "";
     const [isLoader, setLoader] = useState(false);
@@ -44,13 +48,13 @@ const OtpScreen = () => {
     return (
         <SafeAreaView style={otpstyles.dashboardContainer}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
-            {/* <TopHeaderFixed
+            <TopHeaderFixed
                 leftIcon="arrow-back"
                 leftIconSize={20}
                 headerTxt="OTP"
                 onGoBack={() => navigation.goBack()}
                 topHeight={100}>
-            </TopHeaderFixed> */}
+            </TopHeaderFixed>
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView}>
                 <View style={otpstyles.contentHeaderWrapper}>
                     <TextArchivoBold style={otpstyles.textHeader}>OTP Verification</TextArchivoBold>
