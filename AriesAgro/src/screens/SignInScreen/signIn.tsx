@@ -18,6 +18,7 @@ import TextArchivoBold from '../../shared/fontfamily/TextArchivoBold';
 import { signInStyle } from './signInStyle';
 import TopHeaderFixed from '../../shared/constants/TopHeaderFixed';
 import { LIGHTGREY, WHITE } from '../../shared/constants/color';
+import { StyleSheet } from "react-native"
 
 const SignIn: React.FC = () => {
     const [formValue, setFormValue] = useState({ countryCode: '+91', phoneNumber: '' });
@@ -26,7 +27,7 @@ const SignIn: React.FC = () => {
     const [isLoader, setLoader] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
     const [message, setMessage] = useState("");
-    const onChangeInput = (event:any, name:any) => {
+    const onChangeInput = (event: any, name: any) => {
         const { text } = event.nativeEvent;
         setFormValue({ ...formValue, [name]: text.replace(/\D/g, "") });
         if (regex.test(text.toString())) {
@@ -62,50 +63,32 @@ const SignIn: React.FC = () => {
         }
     }
 
-  return (
-    <SafeAreaView style={signInStyle.dashboardContainer}>
-    <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
-    <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={signInStyle.parentView}>
-        <TopHeaderFixed
-            headerTxt="SignIn"
-            onGoBack={() => navigation.goBack()}
-            topHeight={100}>
-        </TopHeaderFixed>
-        <View>
-            <View style={signInStyle.mainSection}>
-                <View style={signInStyle.headerWrapper}>
-                    <TextArchivoBold style={signInStyle.textHeader}>Sign in </TextArchivoBold>
-                    <TextArchivoBold style={signInStyle.txtMobileNumber}> Enter your mobile number</TextArchivoBold>
-                </View>
-                <TextArchivoBold style={signInStyle.mobileMsg}>Phone Number</TextArchivoBold>
-                <View style={signInStyle.inputTextView}>
-                    <View style={signInStyle.profileContents}>
-                        <CustomTextInput allowFontScaling={false} editable={true} style={signInStyle.mobileText} value="IN  +91" />
+    return (
+        <SafeAreaView style={signInStyle.dashboardContainer}>
+            <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
+            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={signInStyle.parentView}>
+                <View style={signInStyle.mainSection}>
+                    <TextArchivoBold style={signInStyle.txtMobileNumber}>Welcome to aries agro</TextArchivoBold>
+                    <View style={signInStyle.inputTextView}>
+                        <View style={signInStyle.profileContents}>
+                            <CustomTextInput allowFontScaling={false} editable={true} style={signInStyle.mobileText} value="IN  +91" />
+                        </View>
+                        <View style={signInStyle.profileContent}>
+                            <CustomTextInput editable={true} maxLength={10} style={signInStyle.mobileTexts}
+                                keyboardType="numeric" placeholderTextColor={LIGHTGREY} selectionColor={WHITE}
+                                placeholder="Phone Number" onChange={(e: any) => onChangeInput(e, 'phoneNumber')} value={formValue.phoneNumber}
+                            />
+                        </View>
                     </View>
-                    <View style={signInStyle.profileContent}>
-                        <CustomTextInput editable={true} maxLength={10} style={signInStyle.mobileTexts}
-                            keyboardType="numeric" placeholderTextColor={LIGHTGREY} selectionColor={WHITE}
-                            placeholder="Phone Number" onChange={(e:any) => onChangeInput(e, 'phoneNumber')} value={formValue.phoneNumber}
-                        />
+                    <View style={signInStyle.formTxt}>
+                        <TextArchivoBold style={signInStyle.erroFormTxt}>{errorMsg}</TextArchivoBold>
                     </View>
                 </View>
-                <View style={signInStyle.formTxt}>
-                    <TextArchivoBold style={signInStyle.erroFormTxt}>{errorMsg}</TextArchivoBold>
-                </View>
-                <View style={signInStyle.loginInformation}>
-                    <TextArchivoBold style={signInStyle.textInformation}>By clicking on ‘Generate OTP’, you are agreeing to our </TextArchivoBold>
-                    {/* <Pressable onPress={() => navigation.navigate("termsAndCondition")}>
-                        <TextArchivoBold style={signInStyle.termAndCondition}>Terms and conditions</TextArchivoBold>
-                    </Pressable> */}
-                </View>
+            </KeyboardAwareScrollView>
+            <View style={signInStyle.btnGenerateOtp}>
+                <CustomButton label={"Login"} onPress={() => onSubmit()} isLoader={isLoader} />
             </View>
-        </View>
-
-    </KeyboardAwareScrollView>
-    <View style={signInStyle.btnGenerateOtp}>
-        <CustomButton label={"Generate OTP"} onPress={() => onSubmit()} isLoader={isLoader} />
-    </View>
-</SafeAreaView>
-  );
+        </SafeAreaView>
+    );
 };
 export default SignIn;
