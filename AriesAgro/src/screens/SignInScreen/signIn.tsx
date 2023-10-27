@@ -19,10 +19,11 @@ import { signInStyle } from './signInStyle';
 import TopHeaderFixed from '../../shared/constants/TopHeaderFixed';
 import { LIGHTGREY, WHITE } from '../../shared/constants/color';
 import { StyleSheet } from "react-native"
+import { OTP_SCREEN } from '../../routes/Routes';
 
 const SignIn: React.FC = () => {
     const [formValue, setFormValue] = useState({ countryCode: '+91', phoneNumber: '' });
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation:any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const regex = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
     const [isLoader, setLoader] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
@@ -35,6 +36,7 @@ const SignIn: React.FC = () => {
         }
     }
     const onSubmit = async () => {
+        navigation.navigate(OTP_SCREEN)    
         const mobileNumber = formValue.phoneNumber;
         try {
             if ((!formValue.phoneNumber || formValue.phoneNumber.length <= 9)) {
@@ -45,16 +47,8 @@ const SignIn: React.FC = () => {
                 setErrorMsg("Please enter a valid 10 digit mobile number");
                 return;
             }
-            // setLoader(true);
-            // let response = await api.mobileSignup(mobileNumber);
-            // dispatch({ type: AUTH_TYPE.COMPANY_DRIVER_DETAILS, payload: response.data })
-            // const userData = response.data;
-            // if (userData || response.data == true) {
-            //     setLoader(true)
-            //     navigation.navigate('OtpScreen', {
-            //         ...response.data, mobileNumber: formValue.phoneNumber, userData, isVerify: true
-            //     });
-            // }
+            setLoader(true);     
+            navigation.navigate(OTP_SCREEN)    
         }
         catch (error) {
             console.log(error);
