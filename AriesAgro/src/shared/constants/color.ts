@@ -80,4 +80,12 @@ export const LIGHTT_GRAY = "#D7D7D7";
 export const RITCH_BLACK = "#020202";
 export const EXTRABRIGHT_GRAY = "#51555E";
 export const SPANISH_GRAY = "#9A9A9A";
+export const ARCHIVO_BLACKBOLD = "Mulish-Black";
+export const ARCHIVO_LIGHT = "Mulish-Light";
+export const ARCHIVO_BLACKITALIC = "Mulish-BlackItalic";
+export const ARCHIVO_BOLD = "Mulish-Bold";
+export const ARCHIVO_EXTRALIGHT = "Mulish-ExtraLight";
+export const ARCHIVO_MEDIUN = "Mulish-Medium";
+export const ARCHIVO_REGULAR = "Mulish-Regular";
+export const ARCHIVO_SEMIBOLD = "Mulish-SemiBold";
 
