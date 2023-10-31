@@ -15,10 +15,11 @@ import TopHeaderFixed from "../../shared/constants/TopHeaderFixed";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
+import { PRODUCT_SCREEN } from "../../routes/Routes";
 
 const OtpScreen = () => {
     const [errorMsg, setErrorMsg] = useState("");
-    const navigation:any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     // const mobileNumber = route.params?.mobileNumber || "";
     // const otp = route.params?.otp || "";
     const [isLoader, setLoader] = useState(false);
@@ -38,10 +39,10 @@ const OtpScreen = () => {
         setRunning(false);
         // setOtpId(parseInt(otpId) + 1)
     }
-    const onVerifyOTP = ()=>{
-
+    const onVerifyOTP = () => {
+        navigation.navigate(PRODUCT_SCREEN)
     }
-    const onResendOTP = ()=>{
+    const onResendOTP = () => {
 
     }
 
