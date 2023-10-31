@@ -19,7 +19,7 @@ import { SELECT_TYPE_SCREEN } from "../../routes/Routes";
 
 const OtpScreen = () => {
     const [errorMsg, setErrorMsg] = useState("");
-    const navigation:any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     // const mobileNumber = route.params?.mobileNumber || "";
     // const otp = route.params?.otp || "";
     const [isLoader, setLoader] = useState(false);
@@ -39,10 +39,10 @@ const OtpScreen = () => {
         setRunning(false);
         // setOtpId(parseInt(otpId) + 1)
     }
-    const onVerifyOTP = ()=>{
+    const onVerifyOTP = () => {
         navigation.navigate(SELECT_TYPE_SCREEN)
     }
-    const onResendOTP = ()=>{
+    const onResendOTP = () => {
 
     }
 
