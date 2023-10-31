@@ -15,7 +15,7 @@ import TopHeaderFixed from "../../shared/constants/TopHeaderFixed";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
-import { PRODUCT_SCREEN } from "../../routes/Routes";
+import { SELECT_TYPE_SCREEN } from "../../routes/Routes";
 
 const OtpScreen = () => {
     const [errorMsg, setErrorMsg] = useState("");
@@ -40,7 +40,7 @@ const OtpScreen = () => {
         // setOtpId(parseInt(otpId) + 1)
     }
     const onVerifyOTP = () => {
-        navigation.navigate(PRODUCT_SCREEN)
+        navigation.navigate(SELECT_TYPE_SCREEN)
     }
     const onResendOTP = () => {
 

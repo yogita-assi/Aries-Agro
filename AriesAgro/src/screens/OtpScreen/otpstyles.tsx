@@ -1,10 +1,11 @@
-import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, } from "../../shared/constants/color";
+import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, SPANISH_GRAY, } from "../../shared/constants/color";
 import { StyleSheet } from "react-native";
 
 export const otpstyles = StyleSheet.create({
     dashboardContainer: {
         flex: 1,
-        backgroundColor: WHITE
+        backgroundColor: WHITE,
+        top:0,
     },
     parentView: {
         flex: 1,
@@ -33,7 +34,12 @@ export const otpstyles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: 8
     },
-
+    textHeaderSelect: {
+        fontSize: 15,
+        color: GREY,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+    },
     loginInformation: {
         alignItems: 'center',
         marginTop: 5,
@@ -129,6 +135,34 @@ export const otpstyles = StyleSheet.create({
     },
     resendOtp: {
         marginHorizontal: 15
-    }
+    },
+    //Select Type style
+    btnOr: {
+        alignSelf: 'center',
+        width: 60,
+        height: 30,
+        marginBottom: 25
+    },
+    txtDistributorView: {
+        borderColor: SPANISH_GRAY,
+        borderWidth: 1, width: 200,
+        alignSelf: 'center',
+        marginTop: 20,
+        padding: 7
+    },
+    farmerView: {
+        borderColor: SPANISH_GRAY,
+        borderWidth: 1,
+        width: 200,
+        alignSelf: 'center',
+        padding: 7,
+        marginBottom: 10
+    },
+    contentHeader: {
+        marginHorizontal: 5,
+        marginVertical: 25,
+        backgroundColor: WHITE,
+        borderRadius: 5,
+    },
 }
 );
