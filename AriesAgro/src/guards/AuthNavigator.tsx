@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { INTRO_SCREEN, OTP_SCREEN, PRODUCT_SCREEN, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN } from '../routes/Routes';
+import { INTRO_SCREEN, OTP_SCREEN, PRODUCT_DETAILS, PRODUCT_SCREEN, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN } from '../routes/Routes';
 import signIn from '../screens/SignInScreen/signIn';
 import OtpScreen from '../screens/OtpScreen/OtpScreen';
 import SelectTypeScreen from '../screens/SelectType/SelectTypeScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
+import ProductDetailsScreen from '../screens/ProductScreen/ProductDetailsScreen';
 import IntroSliderScreen from '../screens/IntroSliderScreen';
 // import ProductScreen from '../screens/product/productScreen';
 
@@ -17,7 +18,8 @@ export type RootStackParamList = {
     ProductScreen: any,
     SelectTypeScreen: any,
     RegistrationScreen: any,
-    IntroSliderScreen: any
+    IntroSliderScreen: any,
+    ProductDetailsScreen: any
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +32,7 @@ function AuthNavigator(): JSX.Element {
             <RootStack.Screen name={OTP_SCREEN} options={{ headerShown: false }} component={OtpScreen} />
             <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />
             <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
+            <RootStack.Screen name={PRODUCT_DETAILS} options={{ headerShown: false }} component={ProductDetailsScreen} />
             {/* <RootStack.Screen name={PRODUCT_SCREEN} options={{ headerShown: false }} component={ProductScreen} /> */}
         </RootStack.Navigator>
     );

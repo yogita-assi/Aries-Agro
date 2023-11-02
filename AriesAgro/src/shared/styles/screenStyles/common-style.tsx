@@ -6,6 +6,9 @@ export const commonStyle = StyleSheet.create({
     safeAreaView: {
         flex: 1, backgroundColor: BLACK
     },
+    emptyComponentImage: {
+        alignSelf: "center"
+    },
     dashboardContainer: {
         backgroundColor: BLACK
     },
