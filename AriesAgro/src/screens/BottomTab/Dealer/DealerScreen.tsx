@@ -7,7 +7,7 @@ import { RootStackParamList } from "../../../guards/AuthNavigator";
 const DealerScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     return (
-        <Text> this is Home Page</Text>
+        <Text> this is Dealer Page</Text>
     )
 }
 

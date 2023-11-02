@@ -37,8 +37,11 @@ const FarmerDashboard = (props: any) => {
                 </View>
 
             </View>
-            <CustomButton style={FarmerDashboardStyle.AddUserbtnStyle} label='Add New Product' onPress={() => addNewProduct()} />
+            {/* <CustomButton style={FarmerDashboardStyle.AddUserbtnStyle} label='Add New Product' onPress={() => addNewProduct()} /> */}
         </SafeAreaView>
+
+
+
     )
 }
 export default FarmerDashboard

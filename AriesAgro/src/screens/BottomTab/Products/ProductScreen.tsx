@@ -7,7 +7,7 @@ import { RootStackParamList } from "../../../guards/AuthNavigator";
 const ProductScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     return (
-        <Text> this is Order Page</Text>
+        <Text> this is product Page</Text>
     )
 }
 

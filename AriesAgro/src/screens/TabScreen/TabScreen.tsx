@@ -1,11 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { GREEN, JPURPLE, WHITE } from '../../shared/constants/color';
+import { BLUE, GREEN, JPURPLE, RED, WHITE } from '../../shared/constants/color';
 import HomeScreen from '../BottomTab/Home/HomeScreen';
 import OrderScreen from '../BottomTab/Order/OrderScreen';
 import ProductScreen from '../BottomTab/Products/ProductScreen';
 import DealerScreen from '../BottomTab/Dealer/DealerScreen';
-import { Icon } from "@rneui/themed";
+import { Icon } from '@rneui/themed';
+import FarmerDashboard from '../dashboard/FarmerDashboard';
+import ProductDetailsScreen from '../ProductScreen/ProductDetailsScreen';
 
 const Tab =createBottomTabNavigator()
 const TabScreen =()=>{
@@ -19,25 +21,25 @@ const TabScreen =()=>{
             headerShown:false
             
         }}>
-            <Tab.Screen name="Home" component={HomeScreen} 
+            <Tab.Screen name="Home" component={FarmerDashboard} 
                 options={{
                     tabBarIcon:({color,size,focused})=>(<Icon name='home' type='antdesign' color={focused ? WHITE : GREEN} ></Icon>
                     )
                 }}        
             />
-            <Tab.Screen name="Order" component={OrderScreen}
+            <Tab.Screen name="Dealer" component={OrderScreen}
                options={{
-                tabBarIcon:({color,size,focused})=>(<Icon name='qrcode' type='antdesign'  color={focused ? WHITE : GREEN}></Icon>
+                tabBarIcon:({color,size,focused})=>(<Icon name='home' type='antdesign'  color={focused ? WHITE : GREEN}></Icon>
                 )
             }}  />  
-            <Tab.Screen name="Product" component={ProductScreen}
+            <Tab.Screen name="Product" component={ProductDetailsScreen}
               options={{
-                tabBarIcon:({color,size,focused})=>(<Icon name='setting' type='antdesign' color={focused ? WHITE : GREEN} ></Icon>
+                tabBarIcon:({color,size,focused})=>(<Icon name='home' type='antdesign' color={focused ? WHITE : GREEN} ></Icon>
                 )
             }}  />
-                 <Tab.Screen name="Dealer" component={DealerScreen}
+                 <Tab.Screen name="Account" component={DealerScreen}
               options={{
-                tabBarIcon:({color,size,focused})=>(<Icon name='setting' type='antdesign' color={focused ? WHITE : GREEN} ></Icon>
+                tabBarIcon:({color,size,focused})=>(<Icon name='home' type='antdesign' color={focused ? WHITE : GREEN} ></Icon>
                 )
             }}  />
 
