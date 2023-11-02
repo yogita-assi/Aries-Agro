@@ -17,7 +17,7 @@ export const signInStyle = StyleSheet.create({
     },
     parentView: {
         flex: 1,
-        marginVertical:20
+        marginVertical: 20
     },
     mainSection: {
         marginTop: 10
@@ -33,22 +33,22 @@ export const signInStyle = StyleSheet.create({
         marginHorizontal: 8
     },
     txtMobileNumber: {
-        fontSize:FONT_TWENTY,
+        fontSize: FONT_TWENTY,
         fontFamily: ArchivoBold,
         lineHeight: 30,
         color: BLACK,
-        alignSelf:"center",
-        marginVertical:20
+        alignSelf: "center",
+        marginVertical: 20
     },
     inputTextView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal:25
+        marginHorizontal: 25
     },
 
     profileContents: {
         width: widthPercentageToDP(18),
-        borderRadius:5,
+        borderRadius: 5,
         color: LIGHTGREY,
         marginLeft: 25,
         height: 50,
@@ -72,7 +72,7 @@ export const signInStyle = StyleSheet.create({
         color: LIGHTGREY,
         height: 50,
         marginRight: 60,
-        borderRadius:5,
+        borderRadius: 5,
     },
     loginInformation: {
         marginHorizontal: widthPercentageToDP(7),
@@ -115,8 +115,7 @@ export const signInStyle = StyleSheet.create({
 
     },
     formTxt: {
-        marginHorizontal: 30,
-        marginTop: 5
+        alignSelf: 'center'
     },
     erroFormTxt: {
         color: BGRED,
