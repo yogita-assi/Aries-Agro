@@ -2,19 +2,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { WHITE } from '../shared/constants/color';
-import { OTP_SCREEN, PRODUCT_SCREEN, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN } from './Routes';
+import { FARMERDASHBOARD, HOME_SCREEN, OTP_SCREEN, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN, TAB_SCREEN } from './Routes';
 import signIn from '../screens/SignInScreen/signIn';
 import OtpScreen from '../screens/OtpScreen/OtpScreen';
 import SelectTypeScreen from '../screens/SelectType/SelectTypeScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
-import ProductScreen from '../screens/product/productScreen';
+import FarmerDashboard from '../screens/dashboard/FarmerDashboard';
+import TabScreen from '../screens/TabScreen/TabScreen';
 
 export type RootStackParamList = {
     SignIn: any,
     OtpScreen: any,
-    ProductScreen: any,
     SelectTypeScreen: any,
-    RegistrationScreen: any
+    RegistrationScreen: any,
+    FarmerDashboard:any,
+    HomeScreen: any;
+    TabScreen: undefined
+
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -28,7 +32,8 @@ function AppRouter(): JSX.Element {
                 <RootStack.Screen name={OTP_SCREEN} component={OtpScreen} />
                 <RootStack.Screen name={SELECT_TYPE_SCREEN} component={SelectTypeScreen} />
                 <RootStack.Screen name={REGESTRATION_SCREEN} component={RegistrationScreen} />
-                <RootStack.Screen name={PRODUCT_SCREEN} component={ProductScreen} />
+                <RootStack.Screen name={FARMERDASHBOARD} component={FarmerDashboard} />
+                <RootStack.Screen name={TAB_SCREEN} component={TabScreen} />
             </RootStack.Navigator >
         </>
     );

@@ -3,7 +3,7 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 import { WHITE } from '../../shared/constants/color';
 
 
-export const productScreenStyle = StyleSheet.create({
+export const FarmerDashboardStyle = StyleSheet.create({
     dashboardContainer: {
         flex: 1,
         backgroundColor: WHITE

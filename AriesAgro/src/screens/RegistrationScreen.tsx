@@ -15,6 +15,7 @@ import CustomTextInput from "../components/inputs/CustomTextInput";
 import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
 import { ADDRESS_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
+import { FARMERDASHBOARD } from "../routes/Routes";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -70,9 +71,10 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        if (validate()) {
-            return
-        }
+        // if (validate()) {
+        //     return
+        // }
+        navigation.navigate(FARMERDASHBOARD)
     }
     return (
         <SafeAreaView style={otpstyles.dashboardContainer}>
