@@ -1,10 +1,22 @@
 import { StyleSheet } from "react-native";
-import { BLACK, JPURPLE, WHITE } from "../constants/color";
+import { ArchivoBold, BLACK, JPURPLE, WHITE } from "../constants/color";
 import { widthPercentageToDP } from "react-native-responsive-screen";
+import { FONT_ELEVEN } from "../constants/FontConstant";
 
 export const productStyle = StyleSheet.create({
     searchSection: {
         flexDirection: 'row',
+    },
+    txtMoreDetails: {
+        fontSize: FONT_ELEVEN,
+        fontFamily: ArchivoBold,
+        lineHeight: 30,
+        color: JPURPLE,
+        marginHorizontal: 12,
+        fontWeight: "bold",
+        borderBottomWidth: 1,
+        borderBottomColor: JPURPLE,
+        width: 70
     },
     mainCardView: {
         flex: 1,

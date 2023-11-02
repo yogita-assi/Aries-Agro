@@ -15,6 +15,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import IntroSliderFirstImage from '../../svg/IntrosliderSvg/IntroSliderFirstImage';
 import { productData } from '../../shared/constants/strings';
+import TextArchivoBold from '../../shared/fontfamily/TextArchivoBold';
 
 const ProductDetailsScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -43,9 +44,12 @@ const ProductDetailsScreen = () => {
                 <View style={productStyle.imageContainer}>
                     <IntroSliderFirstImage height={147} />
                 </View>
-                <View style={productStyle.cardContainer}>
-                    {renderViewChild(item?.name || 'N/A', 'Product Name', item?.information || 'N/A', 'Product Information')}
-                    {renderViewChild(item?.rating || 'N/A', 'Rating', item?.ratin || 'N/A', 'Category')}
+                <View>
+                    <View style={productStyle.cardContainer}>
+                        {renderViewChild(item?.name || 'N/A', 'Product Name', item?.information || 'N/A', 'Product Information')}
+                        {renderViewChild(item?.rating || 'N/A', 'Rating', item?.ratin || 'N/A', 'Category')}
+                    </View>
+                    <TextArchivoBold style={productStyle.txtMoreDetails}>More Details</TextArchivoBold>
                 </View>
             </View>
         )
