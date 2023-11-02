@@ -16,6 +16,7 @@ import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
 import { ADDRESS_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
 import { FARMERDASHBOARD } from "../routes/Routes";
+import { PRODUCT_DETAILS } from "../routes/Routes";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -75,6 +76,10 @@ const RegistrationScreen = () => {
         //     return
         // }
         navigation.navigate(FARMERDASHBOARD)
+        navigation.navigate(PRODUCT_DETAILS)
+        if (validate()) {
+            return
+        }
     }
     return (
         <SafeAreaView style={otpstyles.dashboardContainer}>
