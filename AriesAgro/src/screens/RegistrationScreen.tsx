@@ -9,13 +9,14 @@ import CustomButton from "../components/button/CustomButton";
 import TopHeaderFixed from "../shared/constants/TopHeaderFixed";
 import TextArchivoBold from "../shared/fontfamily/TextArchivoBold";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../guards/AuthNavigator";
 import CustomTextInput from "../components/inputs/CustomTextInput";
 import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
 import { ADDRESS_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
+import { FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
 import { PRODUCT_DETAILS } from "../routes/Routes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../guards/AuthNavigator";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -71,7 +72,11 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        navigation.navigate(PRODUCT_DETAILS)
+        // if (validate()) {
+        //     return
+        // }
+        navigation.navigate(TAB_SCREEN)
+        // navigation.navigate(PRODUCT_DETAILS)
         if (validate()) {
             return
         }
