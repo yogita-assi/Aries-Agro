@@ -25,21 +25,18 @@ export const WalkStyle = StyleSheet.create({
         marginRight: 30,
     },
     text: {
-        fontSize: 22,
+        fontSize: 18,
         lineHeight: 30,
-        marginHorizontal: 30,
         color: MDBLUE,
-        padding: 10,
-        textAlign: 'left',
+        alignSelf: 'center',
+        fontWeight: 'bold'
     },
     subText: {
         fontSize: 16,
         lineHeight: 20,
-        marginHorizontal: 30,
-        color: BLACK,
+        color: MDBLUE,
         padding: 10,
-        marginVertical: 15,
-        textAlign: 'left',
+        marginHorizontal: 30
     },
     title: {
         fontSize: 26,
@@ -50,7 +47,7 @@ export const WalkStyle = StyleSheet.create({
     imageView: {
         alignSelf: "center",
         bottom: 25,
-        marginTop: "12%"
+        marginTop: "5%"
     },
     continue: {
         width: widthPercentageToDP(100),

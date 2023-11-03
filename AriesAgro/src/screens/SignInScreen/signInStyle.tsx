@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import TextArchivoBold from "../../shared/FontFamily/TextArchivoBold";
 import { boxStyle } from "../../shared/styles/screenStyles/common-style";
-import { FONT_TWENTY } from "../../shared/constants/FontConstant";
+import { FONT_TWENTY, FONT_TWENTYFOUR, FONT_TWENTYTWO } from "../../shared/constants/FontConstant";
 
 export const signInStyle = StyleSheet.create({
     dashboardContainer: {
@@ -17,10 +17,11 @@ export const signInStyle = StyleSheet.create({
     },
     parentView: {
         flex: 1,
-        marginVertical: 20
+        marginVertical: 20,
     },
     mainSection: {
-        marginTop: 10
+        marginTop: 20,
+
     },
     headerWrapper: {
         fontFamily: ArchivoBold
@@ -33,12 +34,12 @@ export const signInStyle = StyleSheet.create({
         marginHorizontal: 8
     },
     txtMobileNumber: {
-        fontSize: FONT_TWENTY,
+        fontSize: FONT_TWENTYTWO,
         fontFamily: ArchivoBold,
         lineHeight: 30,
         color: BLACK,
-        alignSelf: "center",
-        marginVertical: 20
+        marginVertical: 20,
+        alignSelf: 'center'
     },
     inputTextView: {
         flexDirection: 'row',
@@ -57,15 +58,13 @@ export const signInStyle = StyleSheet.create({
     mobileText: {
         fontSize: 10,
         color: LIGHTGREY,
-        justifyContent: 'center',
         lineHeight: 10,
-        alignSelf: 'center',
-        height: 34
+        height: 40
     },
     mobileTexts: {
         fontSize: 10,
         color: LIGHTGREY,
-        height: 34
+        height: 40
     },
     profileContent: {
         width: widthPercentageToDP(55),
@@ -144,9 +143,17 @@ export const signInStyle = StyleSheet.create({
         marginTop: 20
     },
     btnGenerateOtp: {
-        top: 0,
-        marginBottom: 20
-    }
+        width: 200,
+        alignSelf: 'center'
+    },
+    imageContainer: {
+        borderWidth: 0.2,
+        flex: 1.5,
+        alignSelf: 'center',
+        borderRadius: 4,
+        paddingVertical: 10,
+        width: 200
+    },
 
 }
 );

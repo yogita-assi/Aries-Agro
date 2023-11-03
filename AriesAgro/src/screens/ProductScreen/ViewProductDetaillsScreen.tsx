@@ -16,9 +16,9 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 import IntroSliderFirstImage from '../../svg/IntrosliderSvg/IntroSliderFirstImage';
 import { productData } from '../../shared/constants/strings';
 import TextArchivoBold from '../../shared/fontfamily/TextArchivoBold';
-import { VIEW_PRODUCT_DETAILS } from '../../routes/Routes';
+import CustomTextInput from '../../components/inputs/CustomTextInput';
 
-const ProductDetailsScreen = () => {
+const ViewProductDetaillsScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [searchText, setSearchText] = useState("");
     const [searchValue, setSearchValue] = useState([]);
@@ -42,22 +42,13 @@ const ProductDetailsScreen = () => {
         return (
             <View
                 style={productStyle.rightLeftBoxContainer}>
-                <Pressable style={productStyle.cardContainer} onPress={() => navigation.navigate(VIEW_PRODUCT_DETAILS)}>
-                    <View style={productStyle.imageContainer}>
-                        <IntroSliderFirstImage height={70} />
-                    </View>
-                    <View style={{ marginHorizontal: 5 }}>
-                        <View>
-                            {renderViewChild(
-                                `${item?.name.substring(0, 30)}` || 'N/A',
-                                'Product Name',
-                                `${item?.information.substring(0, 40)}...` || 'N/A',
-                                'Product Information'
-                            )}
-                        </View>
-                        {renderViewChild(item?.rating || 'N/A', 'Rating',"","")}
-                    </View>
-                </Pressable>
+                <View style={productStyle.imageContainer}>
+                    <IntroSliderFirstImage height={147} />
+                </View>
+                <View style={productStyle.cardContainer}>
+                    {renderViewChild(item?.name || 'N/A', 'Product Name', item?.information || 'N/A', 'Product Information')}
+                    {renderViewChild(item?.rating || 'N/A', 'Rating', item?.ratin || 'N/A', 'Category')}
+                </View>
             </View>
         )
     }
@@ -77,9 +68,13 @@ const ProductDetailsScreen = () => {
                     value={searchText}
                 />
             </View>
+            <TextArchivoBold style={productStyle.txtProductInfo}>Product Name and Information</TextArchivoBold>
+            <View style={productStyle.imageViewContainer}>
+                <IntroSliderFirstImage height={120} />
+            </View>
             {flatlistView(productData, renderItem, "", "", "")}
         </SafeAreaView>
     )
 }
 
-export default ProductDetailsScreen;
+export default ViewProductDetaillsScreen;

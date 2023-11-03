@@ -6,7 +6,6 @@ export let refreshTokenData = {
 };
 
 const authAxiosInstance = axios.create();
-
 export const setSession = async (accessToken: string, refreshToken: string) => {
     if (accessToken) {
         await AsyncStorage.setItem('accessToken', response?.data.data.token);
