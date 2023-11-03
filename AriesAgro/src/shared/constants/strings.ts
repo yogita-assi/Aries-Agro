@@ -2,53 +2,23 @@ export const SEARCH_PRODUCT = "Search Product";
 export const DATE_FORMAT_PLACE = "YYYY-MM-DD";
 export const productData = [
     {
-        "name": "Product 1",
-        "information": "Product 1 information here",
+        "name": "Plant Protection",
+        "information": "Checkout a range of highly productive plant protection products that can be used for protecting complete farms and crops from all kinds of threats",
         "rating": 4.5
     },
     {
-        "name": "Product 2",
-        "information": "Product 2 information here",
+        "name": "Urban Products",
+        "information": "A range of Products for Urban Farming, ready to nourish Urban Gardens. We are proud to present our latest products, designed especially keeping in mind the need of Urban farming market",
         "rating": 3.8
     },
     {
-        "name": "Product 3",
-        "information": "Product 3 information here",
+        "name": "Plant Protection",
+        "information": "Checkout a range of highly productive plant protection products that can be used for protecting complete farms and crops from all kinds of threats.",
         "rating": 4.2
     },
     {
-        "name": "Product 4",
-        "information": "Product 4 information here",
-        "rating": 4.0
+        "name": "Water Soluble NPK",
+        "information": "A water-soluble fertilizer with an optimum combination of Nitrogen, Phosphorous, Potassium, and Sodium. It is readily soluble in water and is best for drip irrigation and foliar application of fertilizer.",
+        "rating": 4.2
     },
-    {
-        "name": "Product 5",
-        "information": "Product 5 information here",
-        "rating": 3.5
-    },
-    {
-        "name": "Product 6",
-        "information": "Product 6 information here",
-        "rating": 4.8
-    },
-    {
-        "name": "Product 7",
-        "information": "Product 7 information here",
-        "rating": 4.3
-    },
-    {
-        "name": "Product 8",
-        "information": "Product 8 information here",
-        "rating": 3.7
-    },
-    {
-        "name": "Product 9",
-        "information": "Product 9 information here",
-        "rating": 4.1
-    },
-    {
-        "name": "Product 10",
-        "information": "Product 10 information here",
-        "rating": 3.9
-    }
 ]

@@ -20,14 +20,19 @@ import TopHeaderFixed from '../../shared/constants/TopHeaderFixed';
 import { LIGHTGREY, WHITE } from '../../shared/constants/color';
 import { StyleSheet } from "react-native"
 import { OTP_SCREEN } from '../../routes/Routes';
+import IntroSliderFirstImage from '../../svg/IntrosliderSvg/IntroSliderFirstImage';
+import loginApi from '../../api/loginApi';
 
 const SignIn: React.FC = () => {
     const [formValue, setFormValue] = useState({ countryCode: '+91', phoneNumber: '' });
-    const navigation:any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const { openModal }: any = useModalContext();
     const regex = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
     const [isLoader, setLoader] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
     const [message, setMessage] = useState("");
+    const [errorMsg, setErrorMsg]: any = useState({
+        phoneNumber: null
+    })
     const onChangeInput = (event: any, name: any) => {
         const { text } = event.nativeEvent;
         setFormValue({ ...formValue, [name]: text.replace(/\D/g, "") });
@@ -35,34 +40,59 @@ const SignIn: React.FC = () => {
             setErrorMsg("");
         }
     }
-    const onSubmit = async () => {
-        navigation.navigate(OTP_SCREEN)    
-        const mobileNumber = formValue.phoneNumber;
-        try {
-            if ((!formValue.phoneNumber || formValue.phoneNumber.length <= 9)) {
-                setErrorMsg("Please enter a valid 10 digit mobile number");
-                return;
-            }
-            if (formValue.phoneNumber && !regex.test(formValue.phoneNumber.toString())) {
-                setErrorMsg("Please enter a valid 10 digit mobile number");
-                return;
-            }
-            setLoader(true);     
-            navigation.navigate(OTP_SCREEN)    
+    const validate = () => {
+        const validFormValues = {
+            phoneNumber: ""
+        };
+        let isValid = false;
+        if ((!formValue.phoneNumber || formValue.phoneNumber.length <= 9)) {
+            isValid = true;
+            validFormValues.phoneNumber = "Please enter a valid 10 digit mobile number"
         }
-        catch (error) {
-            console.log(error);
-            setLoader(false)
-            setErrorMsg("Please enter a valid 10 digit mobile number");
+        if (formValue.phoneNumber && !regex.test(formValue.phoneNumber.toString())) {
+            isValid = true;
+            validFormValues.phoneNumber = "Please enter a valid 10 digit mobile number"
         }
+        setErrorMsg(validFormValues);
+        return isValid;
     }
 
+    const onSubmit = async () => {
+        navigation.navigate(OTP_SCREEN)
+        if (validate()) {
+            return
+        }
+        if (!formValue.phoneNumber) {
+            Alert.alert(ALERT_MESSAGE.ALLFIELDS_REQUIRED);
+            return;
+        }
+        const requestBody = {
+            phoneNumber: formValue?.phoneNumber,
+            countryCode:formValue?.countryCode
+        };
+        try {
+            setLoader(true);
+            const response = await loginApi.SignIn(requestBody)
+            if (response?.data && response?.data?.accessToken) {
+                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.accessToken);
+            } else {
+                Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
+            }
+        } catch (error: any) {
+            openModal(error?.response?.data?.title);
+        } finally {
+            setLoader(false);
+        }
+    };
     return (
         <SafeAreaView style={signInStyle.dashboardContainer}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={signInStyle.parentView}>
                 <View style={signInStyle.mainSection}>
-                    <TextArchivoBold style={signInStyle.txtMobileNumber}>Welcome to aries agro</TextArchivoBold>
+                    <View style={signInStyle.imageContainer}>
+                        <IntroSliderFirstImage height={147} />
+                    </View>
+                    <TextArchivoBold style={signInStyle.txtMobileNumber}>Enter Your Mobile Number</TextArchivoBold>
                     <View style={signInStyle.inputTextView}>
                         <View style={signInStyle.profileContents}>
                             <CustomTextInput allowFontScaling={false} editable={true} style={signInStyle.mobileText} value="IN  +91" />
@@ -75,13 +105,13 @@ const SignIn: React.FC = () => {
                         </View>
                     </View>
                     <View style={signInStyle.formTxt}>
-                        <TextArchivoBold style={signInStyle.erroFormTxt}>{errorMsg}</TextArchivoBold>
+                        <TextArchivoBold style={signInStyle.erroFormTxt}>{errorMsg.phoneNumber}</TextArchivoBold>
+                    </View>
+                    <View style={signInStyle.btnGenerateOtp}>
+                        <CustomButton label={"Login"} onPress={() => onSubmit()} isLoader={isLoader} />
                     </View>
                 </View>
             </KeyboardAwareScrollView>
-            <View style={signInStyle.btnGenerateOtp}>
-                <CustomButton label={"Login"} onPress={() => onSubmit()} isLoader={isLoader} />
-            </View>
         </SafeAreaView>
     );
 };

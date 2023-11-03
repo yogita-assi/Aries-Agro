@@ -388,8 +388,8 @@ const style = StyleSheet.create({
         color: BLACK,
         lineHeight: 17.17,
         fontFamily: FONTFAMILY_INTER,
-        fontWeight: '400',
-        fontSize: 14,
+        fontSize: 11,
+        fontWeight:'200'
     },
     textLeftTitleStyle: {
         color: BLACK,
@@ -400,18 +400,17 @@ const style = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     textHeaderStyle: {
-        color: GRAY_SHADE,
+        color:BLACK,
         lineHeight: 17.17,
         fontFamily: FONTFAMILY_ISTOK_WEB,
-        fontWeight: '400',
-        fontSize: 12,
+        fontSize: 10,
+        fontWeight:'bold',
     },
     textHeaderLeftStyle: {
-        color: GRAY_SHADE,
         lineHeight: 17.17,
         fontFamily: FONTFAMILY_ISTOK_WEB,
         fontWeight: '400',
-        fontSize: 12,
+        fontSize: 10,
         alignSelf: 'flex-end'
     },
     addOrderButton: {
