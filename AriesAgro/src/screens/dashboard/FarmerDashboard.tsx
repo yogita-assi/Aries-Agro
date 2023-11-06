@@ -89,11 +89,9 @@ const FarmerDashboard = (props: any) => {
                         <View style={FarmerDashboardStyle.farmerImg}>
                             <DashboardFarmerIcon />
                         </View>
-                        {/* <ImageBackground source={image1} style={FarmerDashboardStyle.mainBodyIcon}> */}
                             <View style={FarmerDashboardStyle.containerImglastText}>
                                 <Text numberOfLines={2} style={FarmerDashboardStyle.bottomText} >Join Us on 20th to 30th Oct</Text>
                             </View>
-                        {/* </ImageBackground> */}
                     </ImageBackground>
                 </View>
                 <View style={FarmerDashboardStyle.productContainer}>

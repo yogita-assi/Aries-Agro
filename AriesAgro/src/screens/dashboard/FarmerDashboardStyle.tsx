@@ -10,9 +10,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         backgroundColor: WHITE
     },
     mainView: {
-        marginHorizontal: 20,
-        // flex: 1,
-        // justifyContent: 'flex-start'
+        marginHorizontal: 20,      
     },
     flexView: {
         marginVertical: 5,
@@ -61,7 +59,6 @@ export const FarmerDashboardStyle = StyleSheet.create({
     },
     profileDetailsContainer: {
         backgroundColor: "white",
-        // paddingVertical: 20,
         paddingHorizontal: 25,
         flexDirection: 'row',
         alignItems: 'center'
@@ -125,9 +122,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         marginTop: heightPercentageToDP(15),
     },
     containerImg: {
-        position: "absolute",
-        // height: "100%",
-        // width: "100%",
+        position: "absolute",     
         borderRadius: 10
     },
     containerImglastText: {
@@ -135,9 +130,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         bottom: 0,
         backgroundColor: 'green',
         height: 30,
-        justifyContent: 'center',
-        // height: "100%",
-        // width: "100%",
+        justifyContent: 'center',     
         borderRadius: 10
     },
     farmerImg: {
@@ -178,7 +171,6 @@ export const FarmerDashboardStyle = StyleSheet.create({
         width: '70%',
         position: 'absolute',
         marginHorizontal: 10,
-        // marginTop: 140
     },
     textInput: {
         backgroundColor: WHITE,
@@ -186,21 +178,15 @@ export const FarmerDashboardStyle = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 8,
         paddingHorizontal: 10,
-        // width: 320
     },
     textInputContainer: {
-        // marginVertical: 40,
         height: 40,
         color: BLACK,
-        // flexDirection: 'row',
     },
     rightLeftBoxContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // alignItems: 'flex-start',
-        paddingVertical: 10,
-        // flex: 1,
-        // gap: 2,
+        paddingVertical: 10,        
     },
     imageContainer: {
         borderWidth: 0.5,
@@ -214,10 +200,8 @@ export const FarmerDashboardStyle = StyleSheet.create({
     },
     cardContainer: {
         backgroundColor: WHITE,
-        // elevation: 8,
         borderWidth: 0.5,
         borderColor: GRAY_BORDER,
-        // marginHorizontal: 10,
         padding: 10,
         borderRadius: 5,
     },
@@ -233,7 +217,6 @@ export const FarmerDashboardStyle = StyleSheet.create({
         width: 70
     },
     productContainer: {
-        // flex:1,
         marginHorizontal: 20,
         marginVertical: 10
     }
