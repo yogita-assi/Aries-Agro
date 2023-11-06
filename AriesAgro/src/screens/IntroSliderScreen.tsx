@@ -7,10 +7,11 @@ import { WalkStyle } from './style/WalkStyle';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { WHITE } from '../shared/constants/color';
 import TextArchivoBold from '../shared/fontfamily/TextArchivoBold';
-import SignIn from './SignInScreen/signIn';
 import IntroSliderSecondImage from '../svg/IntrosliderSvg/IntroSliderSecondImage';
 import IntroSliderThirdImage from '../svg/IntrosliderSvg/IntroSliderThirdImage';
 import { Text } from 'react-native-paper';
+import { ASYNC_STORAGE } from '../shared/constants/infoMsgStrings';
+import { useAuthContext } from '../authContext/AuthContext';
 
 interface Slide {
     key: string;
@@ -28,7 +29,7 @@ const slides: Slide[] = [
     },
     {
         key: '2',
-        title: 'Serving Farmers Everywhere with 6400+ Distributors Across India &Abroad',
+        title: 'Serving Farmers Everywhere with 6400+ Distributors Across India & Abroad',
         text: 'Empowering farmers everywhere',
         path: <IntroSliderSecondImage width={widthPercentageToDP(90)} height={heightPercentageToDP(45)} />,
     },
@@ -40,9 +41,10 @@ const slides: Slide[] = [
     },
 
 ];
-const IntroSliderScreen = (navigation: any) => {
+const IntroSliderScreen = () => {
     const [cuurentIndex, setIndex] = useState(0);
     const [showSlider, setShowSlider] = useState(true);
+    const { updateState }: any = useAuthContext();
 
     const onSlideChange = (e: any) => {
         setIndex(e)
@@ -78,6 +80,7 @@ const IntroSliderScreen = (navigation: any) => {
 
     const onDone = () => {
         setShowSlider(false);
+        updateState(ASYNC_STORAGE.ISINTROSLIDERDONE, JSON.stringify(true));
     }
 
     const onSkip = () => {
@@ -106,6 +109,5 @@ const IntroSliderScreen = (navigation: any) => {
             </SafeAreaView >
         );
     }
-    return <SignIn />;
 };
 export default IntroSliderScreen;

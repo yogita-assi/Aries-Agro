@@ -23,20 +23,22 @@ export const WalkStyle = StyleSheet.create({
         color: MDBLUE,
         marginTop: 30,
         marginRight: 30,
+        fontWeight: 'bold'
     },
     text: {
         fontSize: 18,
         lineHeight: 30,
         color: MDBLUE,
         alignSelf: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     subText: {
-        fontSize: 16,
+        fontSize: 17,
         lineHeight: 20,
         color: MDBLUE,
         padding: 10,
-        marginHorizontal: 30
+        textAlign: 'center',
+        marginHorizontal: 20
     },
     title: {
         fontSize: 26,
@@ -51,19 +53,13 @@ export const WalkStyle = StyleSheet.create({
     },
     continue: {
         width: widthPercentageToDP(100),
-        right: 0,
-        borderRadius: 20,
-        justifyContent: "center",
-        alignItems: 'center',
+        left: 50
     },
     continueButton: {
         height: heightPercentageToDP(6),
-        width: widthPercentageToDP(40),
-        marginLeft: widthPercentageToDP(50),
+        width: widthPercentageToDP(80),
         bottom: widthPercentageToDP(15),
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20,
+        borderRadius: 7,
         justifyContent: "center",
         backgroundColor: MDBLUE,
     },
@@ -79,13 +75,13 @@ export const WalkStyle = StyleSheet.create({
     activeDotStyle: {
         width: 23,
         backgroundColor: MDBLUE,
-        // top: heightPercentageToDP(8),
+        marginBottom: heightPercentageToDP(30),
         marginLeft: heightPercentageToDP(1),
         marginRight: heightPercentageToDP(1)
     },
     dotStyle: {
         backgroundColor: LIGHTGREY,
-        // top: heightPercentageToDP(8),
+        marginBottom: heightPercentageToDP(30),
         marginLeft: heightPercentageToDP(1),
         marginRight: heightPercentageToDP(1)
     },

@@ -13,19 +13,11 @@ import IntroSliderScreen from '../screens/IntroSliderScreen';
 import ViewProductDetaillsScreen from '../screens/ProductScreen/ViewProductDetaillsScreen';
 // import ProductScreen from '../screens/product/productScreen';
 import TabScreen from '../screens/TabScreen/TabScreen';
+import SignIn from '../screens/SignInScreen/signIn';
 
 export type RootStackParamList = {
     SignIn: any,
     OtpScreen: any,
-    ForgetPassword: any,
-    ResetPassword: any,
-    SelectTypeScreen: any,
-    RegistrationScreen: any,
-    FarmerDashboard: any,
-    IntroSliderScreen: any,
-    ProductDetailsScreen: any,
-    ViewProductDetaillsScreen: any
-    TabScreen: any
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -33,15 +25,8 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 function AuthNavigator(): JSX.Element {
     return (
         <RootStack.Navigator>
-            <RootStack.Screen options={{ headerShown: false }} name={SIGIN_SCREEN} component={IntroSliderScreen} />
+            <RootStack.Screen options={{ headerShown: false }} name={SIGIN_SCREEN} component={SignIn} />
             <RootStack.Screen name={OTP_SCREEN} options={{ headerShown: false }} component={OtpScreen} />
-            <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />
-            <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
-            <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
-            <RootStack.Screen name={PRODUCT_DETAILS} options={{ headerShown: false }} component={ProductDetailsScreen} />
-            <RootStack.Screen name={VIEW_PRODUCT_DETAILS} options={{ headerShown: false }} component={ViewProductDetaillsScreen} />
-            {/* <RootStack.Screen name={PRODUCT_SCREEN} options={{ headerShown: false }} component={ProductScreen} /> */}
-            <RootStack.Screen name={TAB_SCREEN} options={{ headerShown: false }} component={TabScreen} />
         </RootStack.Navigator>
     );
 }
