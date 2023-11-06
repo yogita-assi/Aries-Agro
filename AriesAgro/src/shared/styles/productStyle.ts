@@ -41,8 +41,7 @@ export const productStyle = StyleSheet.create({
         color: BLACK,
         borderWidth: 0.5,
         borderRadius: 8,
-        paddingHorizontal: 10,
-        width: 320
+        width: 300
     },
     flatListContentContainer: {
         marginVertical: 20,
@@ -93,11 +92,11 @@ export const productStyle = StyleSheet.create({
     cardContainer: {
         backgroundColor: WHITE,
         elevation: 8,
-        marginHorizontal: 20,
+        marginHorizontal: 25,
         alignSelf: 'center',
         borderRadius: 5,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        padding: 10
     },
     description: {
         fontSize: 12,
@@ -118,10 +117,10 @@ export const productStyle = StyleSheet.create({
     },
     rightLeftBoxContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
         paddingVertical: 10,
-        flex: 1
+    },
+    childMainView: {
+        marginHorizontal: 5, width: "55%", marginTop: 5
     },
     //ViewProduct details
     imageViewContainer: {

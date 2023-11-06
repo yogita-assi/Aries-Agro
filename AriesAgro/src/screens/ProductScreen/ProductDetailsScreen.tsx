@@ -76,7 +76,7 @@ const ProductDetailsScreen = () => {
                     <View style={productStyle.imageContainer}>
                         <ProductImage height={70} />
                     </View>
-                    <View style={{ marginHorizontal: 5, width: "55%" }}>
+                    <View style={productStyle.childMainView}>
                         {renderViewChild(
                             `${item?.itemName.substring(0, 30)}` || 'N/A',
                             "",

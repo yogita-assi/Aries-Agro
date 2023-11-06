@@ -135,7 +135,7 @@ export const buttonView = (item: any, onPressDelete: any, onPressView: any) => {
 export const rowData = (value: any, title: any, titleStyle: any, valueStyle: any, style: any) => {
     return (
         <View style={style}>
-            <TextArchivoBold style={titleStyle}>{title}</TextArchivoBold>
+            {/* <TextArchivoBold style={titleStyle}>{title}</TextArchivoBold> */}
             <TextArchivoBold style={valueStyle}>{value}</TextArchivoBold>
         </View>
     )
@@ -398,6 +398,7 @@ const style = StyleSheet.create({
         fontFamily: FONTFAMILY_INTER,
         fontSize: 13,
         fontWeight: '700',
+        marginVertical: 5
 
     },
     textDesc: {
