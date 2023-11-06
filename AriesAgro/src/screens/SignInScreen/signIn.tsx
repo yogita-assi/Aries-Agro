@@ -80,7 +80,7 @@ const SignIn: React.FC = () => {
         <SafeAreaView style={signInStyle.dashboardContainer}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={signInStyle.parentView}>
-                <View style={{ flexDirection: 'row', marginTop: 30, alignSelf: 'center' }}>
+                <View style={signInStyle.headerTxt}>
                     <TextArchivoBold style={signInStyle.txtWelcome}>Welcome to </TextArchivoBold>
                     <TextArchivoBold style={signInStyle.txtAriesAgro}>Aries Agro</TextArchivoBold>
                 </View>

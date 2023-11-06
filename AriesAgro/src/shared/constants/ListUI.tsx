@@ -31,7 +31,7 @@ export const renderViewChild = (value: any, title: any, valueSecond: any, titleS
     return (
         <View>
             {rowData(value, title, style.textHeaderStyle, style.textTitleStyle, '')}
-            {rowData(valueSecond, titleSecond, style.textHeaderStyle, style.textTitleStyle, '')}
+            {rowData(valueSecond, titleSecond, style.textHeaderStyle, style.textDesc, '')}
         </View>
     )
 }
@@ -104,6 +104,14 @@ export const flatlistView = (data: any, renderItem: any, refreshing: any, onRefr
             data={data}
             renderItem={({ item, index }: any) => renderItem(item, index)}
             ListEmptyComponent={data ? <NoRecordFound title={'No Record Found'} text='Please try another user' /> : null}
+            refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefreshFunction}
+                />
+            }
+            onEndReached={onEndReached}
+            onEndReachedThreshold={0.10}
         />
     )
 }
@@ -386,10 +394,18 @@ const style = StyleSheet.create({
     },
     textTitleStyle: {
         color: BLACK,
-        lineHeight: 17.17,
+        lineHeight: 13,
         fontFamily: FONTFAMILY_INTER,
-        fontSize: 11,
-        fontWeight:'200'
+        fontSize: 13,
+        fontWeight: '700',
+
+    },
+    textDesc: {
+        color: BLACK,
+        lineHeight: 12,
+        fontFamily: FONTFAMILY_INTER,
+        fontSize: 13,
+        fontWeight: '200',
     },
     textLeftTitleStyle: {
         color: BLACK,
@@ -400,11 +416,11 @@ const style = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     textHeaderStyle: {
-        color:BLACK,
-        lineHeight: 17.17,
+        color: BLACK,
+        lineHeight: 10,
         fontFamily: FONTFAMILY_ISTOK_WEB,
         fontSize: 10,
-        fontWeight:'bold',
+        fontWeight: 'bold',
     },
     textHeaderLeftStyle: {
         lineHeight: 17.17,
