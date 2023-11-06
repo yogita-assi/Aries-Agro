@@ -1,4 +1,5 @@
-import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, SPANISH_GRAY, } from "../../shared/constants/color";
+import { FONT_FIFTEEN, FONT_SEVENTEEN, FONT_TWENTYFOUR } from "../../shared/constants/FontConstant";
+import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, SPANISH_GRAY, MDBLUE, } from "../../shared/constants/color";
 import { StyleSheet } from "react-native";
 
 export const otpstyles = StyleSheet.create({
@@ -36,9 +37,9 @@ export const otpstyles = StyleSheet.create({
     },
     textHeaderSelect: {
         fontSize: 15,
-        color: GREY,
         fontWeight: 'bold',
         alignSelf: 'center',
+        color:WHITE,
     },
     loginInformation: {
         alignItems: 'center',
@@ -144,11 +145,21 @@ export const otpstyles = StyleSheet.create({
         marginBottom: 25
     },
     txtDistributorView: {
-        borderColor: SPANISH_GRAY,
-        borderWidth: 1, width: 200,
+        borderColor: MDBLUE,
+        borderWidth: 1, width: 230,
         alignSelf: 'center',
-        marginTop: 30,
-        padding: 7
+        padding: 10,
+        backgroundColor:MDBLUE,
+        borderRadius:8,
+    },
+    txtFarmerView:{
+        borderColor: MDBLUE,
+        borderWidth: 1, width: 230,
+        alignSelf: 'center',
+        padding: 10,
+        marginTop:10,
+        backgroundColor:MDBLUE,
+        borderRadius:8
     },
     farmerView: {
         borderColor: SPANISH_GRAY,
@@ -160,10 +171,16 @@ export const otpstyles = StyleSheet.create({
     },
     contentHeader: {
         marginHorizontal: 5,
-        marginVertical: 25,
         backgroundColor: WHITE,
         borderRadius: 5,
-        marginTop:30
+    },
+    txtOr:{
+        fontSize: FONT_SEVENTEEN,
+        fontFamily: ArchivoBold,
+        lineHeight: 25,
+        marginTop:10,
+        color: BLACK,
+        textAlign: 'center'
     },
     imageContainer: {
         borderWidth: 0.2,
@@ -173,5 +190,8 @@ export const otpstyles = StyleSheet.create({
         paddingVertical: 10,
         width: 100,
     },
+    mainContainerView:{
+        flex:1,justifyContent:'center'
+    }
 }
 );

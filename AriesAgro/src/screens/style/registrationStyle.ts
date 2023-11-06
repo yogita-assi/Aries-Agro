@@ -7,7 +7,7 @@ export const registrationStyle = StyleSheet.create({
         marginHorizontal: 20,
         height: 40,
         fontSize: 15,
-        lineHeight: 20
+        lineHeight: 20,
     },
     formTxt: {
         marginHorizontal: 35,
@@ -20,6 +20,9 @@ export const registrationStyle = StyleSheet.create({
     btnGenerateOtp: {
         top: 0,
         marginBottom: 20
+    },
+    mainContainerView: {
+        flex: 1, justifyContent: 'center'
     }
 
 })

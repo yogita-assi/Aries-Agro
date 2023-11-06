@@ -26,16 +26,15 @@ const SelectTypeScreen = () => {
                 onGoBack={() => navigation.goBack()}
                 topHeight={100}>
             </TopHeaderFixed>
-            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView}>
-                <View style={otpstyles.imageContainer}>
-                    <IntroSliderFirstImage height={60} width={100} />
-                </View>
+            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView} contentContainerStyle={otpstyles.mainContainerView}>
                 <View style={otpstyles.contentHeader}>
                     <View style={otpstyles.txtDistributorView}>
                         <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Distributor?</TextArchivoBold>
                     </View>
-                    <CustomButton style={otpstyles.btnOr} label={"OR"} />
-                    <View style={{ borderColor: SPANISH_GRAY, borderWidth: 1, width: 200, alignSelf: 'center', padding: 7, marginBottom: 10 }}>
+                    <View>
+                        <TextArchivoBold style={otpstyles.txtOr}> OR </TextArchivoBold>
+                    </View>
+                    <View style={otpstyles.txtFarmerView}>
                         <Pressable onPress={() => navigation.navigate(REGESTRATION_SCREEN)}>
                             <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Farmer?</TextArchivoBold>
                         </Pressable>

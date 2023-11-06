@@ -93,11 +93,11 @@ export const productStyle = StyleSheet.create({
     cardContainer: {
         backgroundColor: WHITE,
         elevation: 8,
-        marginHorizontal: 10,
-        padding: 6,
+        marginHorizontal: 20,
+        alignSelf: 'center',
         borderRadius: 5,
-        flexDirection:'row',
-        justifyContent:'space-around'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     description: {
         fontSize: 12,
@@ -111,20 +111,16 @@ export const productStyle = StyleSheet.create({
         gap: 5,
     },
     imageContainer: {
-        borderWidth: 0.2,
-        flex: 1.5,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 7,
-        marginHorizontal: 5,
-        padding: 5,
-        height:100
+        borderRadius: 10,
+        width: "40%"
     },
     rightLeftBoxContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        paddingVertical: 5,
+        paddingVertical: 10,
         flex: 1
     },
     //ViewProduct details
@@ -182,7 +178,7 @@ export const productStyle = StyleSheet.create({
         fontFamily: FONTFAMILY_ISTOK_WEB
     },
     seeMoreButton: {
-        color: 'blue', 
+        color: 'blue',
         fontSize: 10,
     },
 });
