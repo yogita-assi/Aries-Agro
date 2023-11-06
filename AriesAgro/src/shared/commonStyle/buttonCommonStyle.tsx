@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { JPURPLE, VERYDARK_GRAYISHRED, WHITE } from '../constants/color';
+import { JPURPLE, MDBLUE, VERYDARK_GRAYISHRED, WHITE } from '../constants/color';
 
 export const buttonCommonStyle = StyleSheet.create({
     buttonStyle: {
         borderRadius: 5,
-        backgroundColor: JPURPLE,
+        backgroundColor: MDBLUE,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: "row",
