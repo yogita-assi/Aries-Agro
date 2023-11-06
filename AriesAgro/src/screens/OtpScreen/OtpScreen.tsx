@@ -16,7 +16,6 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
 import { FARMERDASHBOARD, SELECT_TYPE_SCREEN, TAB_SCREEN } from "../../routes/Routes";
-import CustomTextInput from "../../components/inputs/CustomTextInput";
 import { IconButton } from 'react-native-paper';
 import CountDown from "../auth/CountDown";
 import loginApi from "../../api/loginApi";
@@ -35,11 +34,11 @@ const OtpScreen = ({ route: { params }, route }: any) => {
     const mobileNumber = route.params?.mobileNumber || "";
     const [otpId, setOtpId]: any = useState(1)
     const [running, setRunning] = useState(true);
-    const [sessionTimeOut, setSessionTimeOut] :any = useState(false);
+    const [sessionTimeOut, setSessionTimeOut]: any = useState(false);
     const [value, setValue] = useState('');
     const CELL_COUNT = 6;
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
-   
+
     const onCountFinish = () => {
         setSessionTimeOut(true);
         setRunning(false);
@@ -47,119 +46,120 @@ const OtpScreen = ({ route: { params }, route }: any) => {
     const onVerifyOTP = () => {
         navigation.navigate(TAB_SCREEN)
         // navigation.navigate(SELECT_TYPE_SCREEN)
-    const onVerifyOTP = async () => {
-        setErrorMsg("");
-        try {
-            if (!value) {
-                setErrorMsg("Please enter valid otp");
-                return;
+        const onVerifyOTP = async () => {
+            setErrorMsg("");
+            try {
+                if (!value) {
+                    setErrorMsg("Please enter valid otp");
+                    return;
+                }
+                if (value.length <= 5) {
+                    setErrorMsg("Please enter 6 digit otp");
+                    return;
+                }
+                const requestBody = {
+                    phoneNumber: mobileNumber,
+                    verificationKey: key,
+                    otp: value
+                };
+                setLoader(true);
+                const response = await loginApi.verifyOTP(requestBody);
+                if (response && response.data) {
+                    await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
+                    if (response?.data?.data) {
+                        updateState(ASYNC_STORAGE.USERINFO, JSON.stringify(response?.data?.data));
+                    }
+                } else {
+                    Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
+                }
+                setLoader(false);
+            } catch (error) {
+                setLoader(false);
             }
-            if (value.length <= 5) {
-                setErrorMsg("Please enter 6 digit otp");
-                return;
-            }
+        }
+        const onResendOTP = async () => {
             const requestBody = {
                 phoneNumber: mobileNumber,
-                verificationKey: key,
-                otp: value
             };
-            setLoader(true);
-            const response = await loginApi.verifyOTP(requestBody);
-            if (response && response.data) {
-                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
-                if (response?.data?.data) {
-                    updateState(ASYNC_STORAGE.USERINFO, JSON.stringify(response?.data?.data));
+            try {
+                const response = await loginApi.SignIn(requestBody);
+                if (response && response.data) {
+                    setSessionTimeOut(false);
+                    setRunning(true);
+                    setOtpId(parseInt(otpId) + 1)
                 }
-            } else {
-                Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
+            } catch (error: any) {
+                openModal(error);
             }
-            setLoader(false);
-        } catch (error) {
-            setLoader(false);
         }
-    }
-    const onResendOTP = async () => {
-        const requestBody = {
-            phoneNumber: mobileNumber,
-        };
-        try {
-            const response = await loginApi.SignIn(requestBody);
-            if (response && response.data) {
-                setSessionTimeOut(false);
-                setRunning(true);
-                setOtpId(parseInt(otpId) + 1)
-            }
-        } catch (error: any) {
-            openModal(error);
-        }
-    }
-    const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-        value,
-        setValue,
-    });
+        const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+            value,
+            setValue,
+        });
 
-    return (
-        <SafeAreaView style={otpstyles.dashboardContainer}>
-            <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
-            <TopHeaderFixed
-                leftIcon="arrow-back"
-                leftIconSize={20}
-                onGoBack={() => navigation.goBack()}
-                topHeight={100}>
-            </TopHeaderFixed>
-            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView}>
-                <View style={otpstyles.contentHeaderWrapper}>
-                    <TextArchivoBold style={otpstyles.textHeader}>Verification Code</TextArchivoBold>
-                    <View style={otpstyles.loginInformation}>
-                        <TextArchivoBold style={otpstyles.otpInformation}>Please type the verification code and sent to 982236*** </TextArchivoBold>
-                    </View>
-                    <View style={otpstyles.verifyInput}>
-                        <CodeField
-                            ref={ref}
-                            {...props}
-                            value={value}
-                            onChangeText={setValue}
-                            cellCount={CELL_COUNT}
-                            keyboardType="number-pad"
-                            textContentType="oneTimeCode"
-                            renderCell={({ index, symbol, isFocused }) => (
-                                <View style={otpstyles.otpBox} key={index}>
-                                    <CustomFontText
-                                        style={otpstyles.inputStyle}
-                                        onLayout={getCellOnLayoutHandler(index)}>
-                                        {symbol || (isFocused ? <Cursor /> : null)}
-                                    </CustomFontText>
-                                </View>
-                            )}
-                        />
-                        <View style={otpstyles.otpFormTxt}>
-                            <Text style={otpstyles.otpErroFormTxt}>{errorMsg}</Text>
+        return (
+            <SafeAreaView style={otpstyles.dashboardContainer}>
+                <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
+                <TopHeaderFixed
+                    leftIcon="arrow-back"
+                    leftIconSize={20}
+                    onGoBack={() => navigation.goBack()}
+                    topHeight={100}>
+                </TopHeaderFixed>
+                <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView}>
+                    <View style={otpstyles.contentHeaderWrapper}>
+                        <TextArchivoBold style={otpstyles.textHeader}>Verification Code</TextArchivoBold>
+                        <View style={otpstyles.loginInformation}>
+                            <TextArchivoBold style={otpstyles.otpInformation}>Please type the verification code and sent to 982236*** </TextArchivoBold>
                         </View>
+                        <View style={otpstyles.verifyInput}>
+                            <CodeField
+                                ref={ref}
+                                {...props}
+                                value={value}
+                                onChangeText={setValue}
+                                cellCount={CELL_COUNT}
+                                keyboardType="number-pad"
+                                textContentType="oneTimeCode"
+                                renderCell={({ index, symbol, isFocused }) => (
+                                    <View style={otpstyles.otpBox} key={index}>
+                                        <CustomFontText
+                                            style={otpstyles.inputStyle}
+                                            onLayout={getCellOnLayoutHandler(index)}>
+                                            {symbol || (isFocused ? <Cursor /> : null)}
+                                        </CustomFontText>
+                                    </View>
+                                )}
+                            />
+                            <View style={otpstyles.otpFormTxt}>
+                                <Text style={otpstyles.otpErroFormTxt}>{errorMsg}</Text>
+                            </View>
+                        </View>
+                        <View style={otpstyles.countDown}>
+                            <CountDown
+                                sessionTimeOut={sessionTimeOut}
+                                labelText="Resend code in"
+                                until={10}
+                                onFinish={onCountFinish}
+                                key={otpId}
+                                size={15}
+                                timeToShow={['S']}
+                                showSeparator={true}
+                                running={running}
+                            />
+                        </View>
+                        {sessionTimeOut && <View style={otpstyles.resOtp}>
+                            <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
+                            <Pressable onPress={() => onResendOTP()}>
+                                <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
+                            </Pressable>
+                        </View>
+                        }
+                        <CustomButton style={otpstyles.btnContinue} label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
                     </View>
-                    <View style={otpstyles.countDown}>
-                        <CountDown
-                            sessionTimeOut={sessionTimeOut}
-                            labelText="Resend code in"
-                            until={10}
-                            onFinish={onCountFinish}
-                            key={otpId}
-                            size={15}
-                            timeToShow={['S']}
-                            showSeparator={true}
-                            running={running}
-                        />
-                    </View>
-                    {sessionTimeOut && <View style={otpstyles.resOtp}>
-                        <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
-                        <Pressable onPress={() => onResendOTP()}>
-                            <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
-                        </Pressable>
-                    </View>
-                    }
-                    <CustomButton style={otpstyles.btnContinue} label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
-                </View>
-            </KeyboardAwareScrollView>
-        </SafeAreaView>            
+                </KeyboardAwareScrollView>
+            </SafeAreaView>
         )
+    }
 }
-export default OtpScreen;
+export default OtpScreen
