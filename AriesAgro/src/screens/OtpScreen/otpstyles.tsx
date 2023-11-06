@@ -151,7 +151,7 @@ export const otpstyles = StyleSheet.create({
         borderColor: SPANISH_GRAY,
         borderWidth: 1, width: 200,
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: 30,
         padding: 7
     },
     farmerView: {
@@ -167,6 +167,15 @@ export const otpstyles = StyleSheet.create({
         marginVertical: 25,
         backgroundColor: WHITE,
         borderRadius: 5,
+        marginTop:30
+    },
+    imageContainer: {
+        borderWidth: 0.2,
+        flex: 1.5,
+        alignSelf:'flex-end',
+        borderRadius: 4,
+        paddingVertical: 10,
+        width: 100,
     },
 }
 );

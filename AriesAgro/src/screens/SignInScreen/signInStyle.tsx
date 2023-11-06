@@ -1,9 +1,9 @@
-import { BLACK, WHITE, DARKBLUE, PGREEN, BGRED, LIGHTGREY, NAVYBULE, GREEN, JPURPLE, ArchivoBold, ArchivoLight, GREY } from "../../shared/constants/color";
+import { BLACK, WHITE, DARKBLUE, PGREEN, BGRED, LIGHTGREY, NAVYBULE, GREEN, JPURPLE, ArchivoBold, ArchivoLight, GREY, MDBLUE } from "../../shared/constants/color";
 import { StyleSheet } from "react-native";
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import TextArchivoBold from "../../shared/FontFamily/TextArchivoBold";
 import { boxStyle } from "../../shared/styles/screenStyles/common-style";
-import { FONT_TWENTY } from "../../shared/constants/FontConstant";
+import { FONT_ELEVEN, FONT_FIFTEEN, FONT_SIXTENN, FONT_TWENTY, FONT_TWENTYFIVE, FONT_TWENTYFOUR, FONT_TWENTYTWO } from "../../shared/constants/FontConstant";
 
 export const signInStyle = StyleSheet.create({
     dashboardContainer: {
@@ -17,10 +17,10 @@ export const signInStyle = StyleSheet.create({
     },
     parentView: {
         flex: 1,
-        marginVertical: 20
+        marginVertical: 20,
     },
     mainSection: {
-        marginTop: 10
+        marginTop: 20,
     },
     headerWrapper: {
         fontFamily: ArchivoBold
@@ -33,21 +33,37 @@ export const signInStyle = StyleSheet.create({
         marginHorizontal: 8
     },
     txtMobileNumber: {
-        fontSize: FONT_TWENTY,
+        fontSize: FONT_SIXTENN,
+        fontFamily: ArchivoBold,
+        lineHeight: 20,
+        color: BLACK,
+        marginTop: 5,
+        fontWeight: 700,
+        marginHorizontal: 30
+    },
+    txtWelcome: {
+        fontSize: FONT_TWENTYFOUR,
         fontFamily: ArchivoBold,
         lineHeight: 30,
         color: BLACK,
-        alignSelf: "center",
-        marginVertical: 20
+        textAlign: 'center'
+    },
+    txtAriesAgro: {
+        fontSize: FONT_TWENTYFIVE,
+        fontFamily: ArchivoBold,
+        lineHeight: 30,
+        color: MDBLUE,
+        fontWeight: 'bold',
     },
     inputTextView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: 25
+        marginHorizontal: 5,
+        marginTop: 20
     },
 
     profileContents: {
-        width: widthPercentageToDP(18),
+        width: widthPercentageToDP(20),
         borderRadius: 5,
         color: LIGHTGREY,
         marginLeft: 25,
@@ -57,18 +73,16 @@ export const signInStyle = StyleSheet.create({
     mobileText: {
         fontSize: 10,
         color: LIGHTGREY,
-        justifyContent: 'center',
         lineHeight: 10,
-        alignSelf: 'center',
-        height: 34
+        height: 40
     },
     mobileTexts: {
         fontSize: 10,
         color: LIGHTGREY,
-        height: 34
+        height: 40
     },
     profileContent: {
-        width: widthPercentageToDP(55),
+        width: widthPercentageToDP(62),
         color: LIGHTGREY,
         height: 50,
         marginRight: 60,
@@ -114,6 +128,15 @@ export const signInStyle = StyleSheet.create({
         fontStyle: 'italic',
 
     },
+    txtPrivacyPolicy: {
+        fontSize: FONT_FIFTEEN,
+        fontFamily: ArchivoBold,
+        width: 280,
+        lineHeight: 20,
+        color: BLACK,
+        textAlign: 'center',
+        marginHorizontal: 15
+    },
     formTxt: {
         alignSelf: 'center'
     },
@@ -144,8 +167,17 @@ export const signInStyle = StyleSheet.create({
         marginTop: 20
     },
     btnGenerateOtp: {
-        top: 0,
-        marginBottom: 20
+        width: 350,
+        alignSelf: 'flex-end',
+    },
+    imageContainer: {
+        flex: 1.5,
+        alignSelf: 'center',
+        paddingVertical: 10,
+    },
+    txtPrivacy: {
+        color: MDBLUE,
+        fontWeight: 'bold',
     }
 
 }

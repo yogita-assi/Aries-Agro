@@ -1,3 +1,3 @@
 export const ENVIRONMENT = {
-    AUTH_API_URL: "https://erp-api-dev.assimilate.co.in/api/",
+    AUTH_API_URL: "http://localhost:9000/v1/auth/",
 }

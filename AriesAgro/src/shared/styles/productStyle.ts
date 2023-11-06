@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { ArchivoBold, BLACK, JPURPLE, WHITE } from "../constants/color";
+import { ArchivoBold, BLACK, GRAY_SHADE, JPURPLE, WHITE } from "../constants/color";
 import { widthPercentageToDP } from "react-native-responsive-screen";
-import { FONT_ELEVEN } from "../constants/FontConstant";
+import { FONTFAMILY_ISTOK_WEB, FONT_ELEVEN, FONT_FIFTEEN } from "../constants/FontConstant";
 
 export const productStyle = StyleSheet.create({
     searchSection: {
@@ -94,8 +94,10 @@ export const productStyle = StyleSheet.create({
         backgroundColor: WHITE,
         elevation: 8,
         marginHorizontal: 10,
-        padding: 10,
+        padding: 6,
         borderRadius: 5,
+        flexDirection:'row',
+        justifyContent:'space-around'
     },
     description: {
         fontSize: 12,
@@ -113,16 +115,74 @@ export const productStyle = StyleSheet.create({
         flex: 1.5,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 4,
+        borderRadius: 7,
         marginHorizontal: 5,
-        padding: 5
+        padding: 5,
+        height:100
     },
     rightLeftBoxContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        paddingVertical: 10,
+        paddingVertical: 5,
+        flex: 1
+    },
+    //ViewProduct details
+    imageViewContainer: {
+        borderWidth: 0.2,
+        alignSelf: 'center',
+        borderRadius: 4,
+        padding: 10,
+        width: 230,
+        marginTop: 10
+    },
+    txtProductInfo: {
+        color: JPURPLE,
+        fontSize: FONT_FIFTEEN,
+        alignSelf: 'center',
+        marginVertical: 10,
+        fontWeight: 'bold'
+    },
+    rowView: {
+        flexDirection: 'row',
+        gap: 10,
+        marginHorizontal: 10,
+        marginTop: 6
+    },
+    mainFieldView: {
         flex: 1,
-        gap: 2,
-    }
+        marginTop: 5
+    },
+    inputText: {
+        marginHorizontal: 10,
+        height: 40,
+        fontSize: 15,
+        lineHeight: 15,
+        marginTop: 2,
+        color: BLACK,
+        width: 140
+    },
+    grayInputElement: {
+        marginTop: 10,
+        borderColor: GRAY_SHADE,
+        color: WHITE,
+        borderWidth: 1,
+        borderRadius: 10,
+        height: 40,
+    },
+    grayTitle: {
+        color: GRAY_SHADE,
+        marginHorizontal: 10,
+        paddingHorizontal: 5,
+        position: 'absolute',
+        backgroundColor: WHITE,
+        lineHeight: 17.7,
+        fontSize: 12,
+        fontWeight: '400',
+        fontFamily: FONTFAMILY_ISTOK_WEB
+    },
+    seeMoreButton: {
+        color: 'blue', 
+        fontSize: 10,
+    },
 });

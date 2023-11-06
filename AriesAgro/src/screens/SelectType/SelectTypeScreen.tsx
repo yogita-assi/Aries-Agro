@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
 import { REGESTRATION_SCREEN } from "../../routes/Routes";
+import IntroSliderFirstImage from "../../svg/IntrosliderSvg/IntroSliderFirstImage";
 
 const SelectTypeScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -26,6 +27,9 @@ const SelectTypeScreen = () => {
                 topHeight={100}>
             </TopHeaderFixed>
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView}>
+                <View style={otpstyles.imageContainer}>
+                    <IntroSliderFirstImage height={60} width={100} />
+                </View>
                 <View style={otpstyles.contentHeader}>
                     <View style={otpstyles.txtDistributorView}>
                         <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Distributor?</TextArchivoBold>

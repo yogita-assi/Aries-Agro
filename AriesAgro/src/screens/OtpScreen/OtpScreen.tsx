@@ -1,5 +1,5 @@
 
-import { View, StatusBar, Pressable, TextInput } from "react-native";
+import { View, StatusBar, Pressable, Alert } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BLACK, WHITE, DARKBLUE, NAVYBULE, GREEN, BGRED, JPURPLE, VERYDARK_GRAYISHRED, } from "../../shared/constants/color";
@@ -19,32 +19,79 @@ import { FARMERDASHBOARD, SELECT_TYPE_SCREEN, TAB_SCREEN } from "../../routes/Ro
 import CustomTextInput from "../../components/inputs/CustomTextInput";
 import { IconButton } from 'react-native-paper';
 import CountDown from "../auth/CountDown";
+import loginApi from "../../api/loginApi";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ALERT_MESSAGE, ASYNC_STORAGE } from "../../shared/constants/infoMsgStrings";
+import { useModalContext } from "../../modalContext/ModalContext";
+import { useAuthContext } from "../../authContext/AuthContext";
 
-const OtpScreen = () => {
+const OtpScreen = ({ route: { params }, route }: any) => {
     const [errorMsg, setErrorMsg] = useState("");
+    const { updateState }: any = useAuthContext();
+    const { openModal }: any = useModalContext();
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-    // const mobileNumber = route.params?.mobileNumber || "";
-    // const otp = route.params?.otp || "";
     const [isLoader, setLoader] = useState(false);
-    const [otpId, setOtpId] = useState(1)
+    const key = route?.params?.data;
+    const mobileNumber = route.params?.mobileNumber || "";
+    const [otpId, setOtpId]: any = useState(1)
     const [running, setRunning] = useState(true);
     const [sessionTimeOut, setSessionTimeOut] :any = useState(false);
     const [value, setValue] = useState('');
-    // const dispatch = useDispatch();
     const CELL_COUNT = 6;
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
    
     const onCountFinish = () => {
         setSessionTimeOut(true);
         setRunning(false);
-        // setOtpId(parseInt(otpId) + 1)
     }
     const onVerifyOTP = () => {
         navigation.navigate(TAB_SCREEN)
         // navigation.navigate(SELECT_TYPE_SCREEN)
+    const onVerifyOTP = async () => {
+        setErrorMsg("");
+        try {
+            if (!value) {
+                setErrorMsg("Please enter valid otp");
+                return;
+            }
+            if (value.length <= 5) {
+                setErrorMsg("Please enter 6 digit otp");
+                return;
+            }
+            const requestBody = {
+                phoneNumber: mobileNumber,
+                verificationKey: key,
+                otp: value
+            };
+            setLoader(true);
+            const response = await loginApi.verifyOTP(requestBody);
+            if (response && response.data) {
+                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
+                if (response?.data?.data) {
+                    updateState(ASYNC_STORAGE.USERINFO, JSON.stringify(response?.data?.data));
+                }
+            } else {
+                Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
+            }
+            setLoader(false);
+        } catch (error) {
+            setLoader(false);
+        }
     }
-    const onResendOTP = () => {
-
+    const onResendOTP = async () => {
+        const requestBody = {
+            phoneNumber: mobileNumber,
+        };
+        try {
+            const response = await loginApi.SignIn(requestBody);
+            if (response && response.data) {
+                setSessionTimeOut(false);
+                setRunning(true);
+                setOtpId(parseInt(otpId) + 1)
+            }
+        } catch (error: any) {
+            openModal(error);
+        }
     }
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value,
