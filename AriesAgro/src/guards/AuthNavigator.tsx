@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FARMERDASHBOARD, TAB_SCREEN, INTRO_SCREEN, OTP_SCREEN, PRODUCT_DETAILS, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN } from '../routes/Routes';
+import { FARMERDASHBOARD, TAB_SCREEN, INTRO_SCREEN, OTP_SCREEN, PRODUCT_DETAILS, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN, CHOOSE_YOUR_INTREST } from '../routes/Routes';
 import signIn from '../screens/SignInScreen/signIn';
 import OtpScreen from '../screens/OtpScreen/OtpScreen';
 import SelectTypeScreen from '../screens/SelectType/SelectTypeScreen';
@@ -11,6 +11,7 @@ import HomeScreen from '../screens/BottomTab/Home/HomeScreen';
 import ProductDetailsScreen from '../screens/ProductScreen/ProductDetailsScreen';
 import IntroSliderScreen from '../screens/IntroSliderScreen';
 import TabScreen from '../screens/TabScreen/TabScreen';
+import ChooseYourInterests from '../screens/IntrestScreen/ChooseYourInterests';
 
 export type RootStackParamList = {
     SignIn: any,
@@ -21,7 +22,8 @@ export type RootStackParamList = {
     RegistrationScreen: any,
     FarmerDashboard: any,
     IntroSliderScreen: any,
-    ProductDetailsScreen: any
+    ProductDetailsScreen: any,
+    ChooseYourInterests:any,
     TabScreen: any
 };
 
@@ -32,11 +34,12 @@ function AuthNavigator(): JSX.Element {
         <RootStack.Navigator>
             <RootStack.Screen options={{ headerShown: false }} name={SIGIN_SCREEN} component={IntroSliderScreen} />
             <RootStack.Screen name={OTP_SCREEN} options={{ headerShown: false }} component={OtpScreen} />
+            <RootStack.Screen name={TAB_SCREEN} options={{ headerShown: false }} component={TabScreen} />
+            <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
             <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />
             <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
-            <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
+            <RootStack.Screen name={CHOOSE_YOUR_INTREST} options={{ headerShown: false }} component={ChooseYourInterests} />
             <RootStack.Screen name={PRODUCT_DETAILS} options={{ headerShown: false }} component={ProductDetailsScreen} />
-            <RootStack.Screen name={TAB_SCREEN} options={{ headerShown: false }} component={TabScreen} />
         </RootStack.Navigator>
     );
 }

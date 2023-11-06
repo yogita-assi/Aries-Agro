@@ -13,7 +13,7 @@ import CustomTextInput from "../components/inputs/CustomTextInput";
 import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
 import { ADDRESS_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
-import { FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
+import { CHOOSE_YOUR_INTREST, FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
 import { PRODUCT_DETAILS } from "../routes/Routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../guards/AuthNavigator";
@@ -75,7 +75,7 @@ const RegistrationScreen = () => {
         // if (validate()) {
         //     return
         // }
-        navigation.navigate(TAB_SCREEN)
+        navigation.navigate(CHOOSE_YOUR_INTREST)
         // navigation.navigate(PRODUCT_DETAILS)
         if (validate()) {
             return
