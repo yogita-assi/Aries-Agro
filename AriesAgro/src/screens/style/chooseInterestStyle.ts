@@ -34,13 +34,11 @@ export const chooseInterestStyle = StyleSheet.create({
     },
     btnView: {
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        marginHorizontal: 25
     },
     btnOrganicBio: {
-        width: 180, marginHorizontal: 30,
-    },
-    btnFertilizer: {
-        width: 140, right: 20
+        width: 165
     },
     btnContinue: {
         width: 350,

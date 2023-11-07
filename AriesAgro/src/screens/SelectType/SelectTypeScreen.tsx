@@ -30,7 +30,7 @@ const SelectTypeScreen = () => {
                 <View style={otpstyles.contentHeader}>
                     <View style={otpstyles.txtDistributorView}>
                         <Pressable onPress={() => navigation.navigate(DEALER_REGISTRATION)}>
-                            <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Distributor?</TextArchivoBold>
+                            <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Dealer?</TextArchivoBold>
                         </Pressable>
                     </View>
                     <View>

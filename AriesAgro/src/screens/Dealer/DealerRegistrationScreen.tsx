@@ -126,7 +126,7 @@ const DealerRegistrationScreen = () => {
                 <View style={otpstyles.contentHeader}>
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter Dealer First Name"
+                        label="Enter First Name"
                         style={registrationStyle.inputText}
                         outlineColor={JPURPLE}
                         maxLength={50}
@@ -141,7 +141,7 @@ const DealerRegistrationScreen = () => {
                     }
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter Dealer Last Name"
+                        label="Enter Last Name"
                         style={registrationStyle.inputText}
                         outlineColor={JPURPLE}
                         maxLength={50}
