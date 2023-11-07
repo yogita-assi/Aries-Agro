@@ -126,11 +126,7 @@ export const otpstyles = StyleSheet.create({
         height: 43,
         padding: 7
     },
-    btnContinue: {
-        alignSelf: 'center',
-        width: 150,
-        marginBottom: 25
-    },
+    
     txtCurrentRide: {
         fontSize: 20,
         lineHeight: 50,

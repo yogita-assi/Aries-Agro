@@ -62,7 +62,7 @@ const OtpScreen = ({ route: { params }, route }: any) => {
             };
             setLoader(true);
             const response = await loginApi.verifyOTP(requestBody);
-            console.log(response?.data,"data")
+            console.log(response?.data, "data")
             if (response && response) {
                 await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
                 if (response?.data?.data) {
@@ -100,7 +100,6 @@ const OtpScreen = ({ route: { params }, route }: any) => {
         <SafeAreaView style={otpstyles.dashboardContainer}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
             <TopHeaderFixed
-                leftIcon="arrow-back"
                 leftIconSize={20}
                 onGoBack={() => navigation.goBack()}
                 topHeight={100}>
@@ -135,28 +134,30 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                         </View>
                     </View>
                     <View style={otpstyles.countDown}>
-                            <CountDown
-                                sessionTimeOut={sessionTimeOut}
-                                labelText="Resend code in"
-                                until={10}
-                                onFinish={onCountFinish}
-                                key={otpId}
-                                size={15}
-                                timeToShow={['S']}
-                                showSeparator={true}
-                                running={running}
-                            />
-                        </View>
-                        {sessionTimeOut && <View style={otpstyles.resOtp}>
-                            <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
-                            <Pressable onPress={() => onResendOTP()}>
-                                <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
-                            </Pressable>
-                        </View>
-                        }
-                    <CustomButton style={otpstyles.btnContinue} label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
+                        <CountDown
+                            sessionTimeOut={sessionTimeOut}
+                            labelText="Resend code in"
+                            until={59}
+                            onFinish={onCountFinish}
+                            key={otpId}
+                            size={15}
+                            timeToShow={['S']}
+                            showSeparator={true}
+                            running={running}
+                        />
+                    </View>
+                    {sessionTimeOut && <View style={otpstyles.resOtp}>
+                        <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
+                        <Pressable onPress={() => onResendOTP()}>
+                            <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
+                        </Pressable>
+                    </View>
+                    }
+
                 </View>
+
             </KeyboardAwareScrollView>
+            <CustomButton label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
         </SafeAreaView>
     )
 }
