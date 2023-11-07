@@ -11,12 +11,12 @@ const verifyOTP = (requestBody: any) => {
     return axios.post(url, requestBody);
 }
 const registerUser = (requestBody: any) => {
-    const url = `${ENVIRONMENT.AUTH_API_URL}users`;
-    return authAxiosInstance.post(url, requestBody);
+    const url = `${ENVIRONMENT.AUTH_API_URL}auth/user`;
+    return axios.post(url, requestBody);
 }
 const interestDetails = () => {
     const url = `${ENVIRONMENT.AUTH_API_URL}interest/get`;
-    return axios.get(url);
+    return authAxiosInstance.get(url);
 }
 export default {
     SignIn, verifyOTP, registerUser, interestDetails

@@ -18,6 +18,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../guards/AuthNavigator";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ASYNC_STORAGE } from "../shared/constants/infoMsgStrings";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -77,13 +79,14 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
+        // navigation.navigate(CHOOSE_INTEREST)
         if (validate()) {
             return
         }
         const requestBody = {
-            email: "",
+            email: "shitalmska12@gmail.com",
             phoneNumber: formValue?.mobileNumber,
-            roleId: 4,
+            roleId: 8,
             firstName: formValue?.firstName,
             middleName: "",
             lastName: formValue?.lastName,
@@ -98,8 +101,10 @@ const RegistrationScreen = () => {
         try {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
+            console.log(response?.data, "data")
             if (response?.data) {
-                navigation.navigate(TAB_SCREEN)
+                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
+                navigation.navigate(CHOOSE_INTEREST)
             }
         } catch (error: any) {
             openModal(error?.response?.data);
