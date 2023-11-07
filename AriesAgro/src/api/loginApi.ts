@@ -14,8 +14,12 @@ const registerUser = (requestBody: any) => {
     const url = `${ENVIRONMENT.AUTH_API_URL}users`;
     return authAxiosInstance.post(url, requestBody);
 }
+const interestDetails = () => {
+    const url = `${ENVIRONMENT.AUTH_API_URL}interest/get`;
+    return authAxiosInstance.get(url);
+}
 export default {
-    SignIn, verifyOTP, registerUser
+    SignIn, verifyOTP, registerUser, interestDetails
 }
 
 
