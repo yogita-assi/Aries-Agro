@@ -42,6 +42,9 @@ export const FarmerDashboardStyle = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 10
     },
+    childMainView: {
+        marginHorizontal: 5, width: "55%", marginTop: 5
+    },
     textStyle: {
         color: GREY,
         fontSize: 14,

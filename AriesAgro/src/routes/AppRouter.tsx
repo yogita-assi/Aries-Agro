@@ -33,6 +33,7 @@ const Tab = createBottomTabNavigator()
 function AppRouter(): JSX.Element {
     const { state }: any = useAuthContext();
     const isUserVerify = JSON.parse(state?.userInfo)?.isUser
+    console.log(isUserVerify,"...")
     return (
         <>
             <StatusBar backgroundColor={WHITE} barStyle="dark-content" />
