@@ -16,7 +16,7 @@ const registerUser = (requestBody: any) => {
 }
 const interestDetails = () => {
     const url = `${ENVIRONMENT.AUTH_API_URL}interest/get`;
-    return authAxiosInstance.get(url);
+    return axios.get(url);
 }
 export default {
     SignIn, verifyOTP, registerUser, interestDetails

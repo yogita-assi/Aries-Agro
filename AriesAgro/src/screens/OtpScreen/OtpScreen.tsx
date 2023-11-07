@@ -62,12 +62,11 @@ const OtpScreen = ({ route: { params }, route }: any) => {
             };
             setLoader(true);
             const response = await loginApi.verifyOTP(requestBody);
-            console.log(response?.data,"data")
             if (response && response) {
-                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
                 if (response?.data?.data) {
                     updateState(ASYNC_STORAGE.USERINFO, JSON.stringify(response?.data?.data));
                 }
+                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
             } else {
                 Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
             }
@@ -135,25 +134,25 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                         </View>
                     </View>
                     <View style={otpstyles.countDown}>
-                            <CountDown
-                                sessionTimeOut={sessionTimeOut}
-                                labelText="Resend code in"
-                                until={10}
-                                onFinish={onCountFinish}
-                                key={otpId}
-                                size={15}
-                                timeToShow={['S']}
-                                showSeparator={true}
-                                running={running}
-                            />
-                        </View>
-                        {sessionTimeOut && <View style={otpstyles.resOtp}>
-                            <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
-                            <Pressable onPress={() => onResendOTP()}>
-                                <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
-                            </Pressable>
-                        </View>
-                        }
+                        <CountDown
+                            sessionTimeOut={sessionTimeOut}
+                            labelText="Resend code in"
+                            until={10}
+                            onFinish={onCountFinish}
+                            key={otpId}
+                            size={15}
+                            timeToShow={['S']}
+                            showSeparator={true}
+                            running={running}
+                        />
+                    </View>
+                    {sessionTimeOut && <View style={otpstyles.resOtp}>
+                        <TextArchivoBold style={otpstyles.resendOTPTxt}>Didn't receive OTP?</TextArchivoBold>
+                        <Pressable onPress={() => onResendOTP()}>
+                            <TextArchivoBold style={otpstyles.resendOTP}>Resend</TextArchivoBold>
+                        </Pressable>
+                    </View>
+                    }
                     <CustomButton style={otpstyles.btnContinue} label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
                 </View>
             </KeyboardAwareScrollView>
