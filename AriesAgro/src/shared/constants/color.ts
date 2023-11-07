@@ -16,7 +16,7 @@ export const WHITE_BACKGROUND = '#EEEFF4';
 export const GRAY_SHADE = "#717171";
 export const RAISIAN_BLACK = "#231F20";
 export const NAVYBULE = '#303342';
-export const LIGHTGREY = "#D2D2D2";
+export const LIGHTGREY = "#555656";
 export const EXTRA_LIGHTGREY = "#D3D3D3";
 export const DISABLED = "#C4C4C4";
 export const LIGHTBLUE = "#1D2149";
@@ -97,4 +97,5 @@ export const ARCHIVO_EXTRALIGHT = "Mulish-ExtraLight";
 export const ARCHIVO_MEDIUN = "Mulish-Medium";
 export const ARCHIVO_REGULAR = "Mulish-Regular";
 export const ARCHIVO_SEMIBOLD = "Mulish-SemiBold";
+export const GREY_LIGHT="#D2D2D2"
 
