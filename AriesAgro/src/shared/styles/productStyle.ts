@@ -41,7 +41,8 @@ export const productStyle = StyleSheet.create({
         color: BLACK,
         borderWidth: 0.5,
         borderRadius: 8,
-        width: 300
+        width: 300,
+        padding: 10
     },
     flatListContentContainer: {
         marginVertical: 20,
