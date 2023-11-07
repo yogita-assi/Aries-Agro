@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { ArchivoBold, BGRED, BLACK, LIGHTGREY, WHITE } from '../../shared/constants/color';
+import { ArchivoBold, BGRED, BLACK, LIGHTGREY, MDBLUE, WHITE } from '../../shared/constants/color';
 import { FONT_FIFTEEN, FONT_SIXTENN, FONT_TEN, FONT_THIRTEEN, FONT_TWENTY, FONT_TWENTYFIVE, FONT_TWENTYFOUR } from '../../shared/constants/FontConstant';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 export const chooseInterestStyle = StyleSheet.create({
     dashboardContainer: {
@@ -44,5 +45,22 @@ export const chooseInterestStyle = StyleSheet.create({
     btnContinue: {
         width: 350,
         alignSelf: 'flex-end'
-    }
+    },
+    btnButtonStyle: {
+        backgroundColor: LIGHTGREY
+    },
+    txtOragnic: {
+        color: BLACK
+    },
+    skipView: {
+        alignSelf: "flex-end",
+        width: widthPercentageToDP(20),
+        left: 15
+    },
+    skipBtn: {
+        color: BLACK,
+        marginTop: 30,
+        marginRight: 30,
+        fontWeight: 'bold'
+    },
 })

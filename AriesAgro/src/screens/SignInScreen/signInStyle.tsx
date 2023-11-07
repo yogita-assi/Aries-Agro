@@ -72,7 +72,7 @@ export const signInStyle = StyleSheet.create({
     },
     mobileText: {
         fontSize: 10,
-        color: LIGHTGREY,
+        color: BLACK,
         lineHeight: 10,
         height: 40
     },
