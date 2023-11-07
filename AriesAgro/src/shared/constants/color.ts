@@ -97,5 +97,10 @@ export const ARCHIVO_EXTRALIGHT = "Mulish-ExtraLight";
 export const ARCHIVO_MEDIUN = "Mulish-Medium";
 export const ARCHIVO_REGULAR = "Mulish-Regular";
 export const ARCHIVO_SEMIBOLD = "Mulish-SemiBold";
+export const LIGHT_BLUE = "#008C99";
+export const GREY_SHADE = "#303C54";
+export const BORDER_COLOR = "#BFBFBF"
+export const PANTONE = "#4396F8";
+export const DARK_GREEN = "#049148"
 export const GREY_LIGHT="#D2D2D2"
 

@@ -1,6 +1,7 @@
 import { FONT_FIFTEEN, FONT_SEVENTEEN, FONT_TWENTYFOUR } from "../../shared/constants/FontConstant";
-import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, SPANISH_GRAY, MDBLUE, } from "../../shared/constants/color";
+import { BLACK, WHITE, DARKBLUE, NAVYBULE, PGREEN, BGRED, GREEN, JPURPLE, MDRED, ArchivoExtraBold, ArchivoBold, GREY, LIGHTGREY, SPANISH_GRAY, MDBLUE, GREY_SHADE, LIGHT_BLUE, BORDER_COLOR, } from "../../shared/constants/color";
 import { StyleSheet } from "react-native";
+import { FONT_EIGHTEEN, FONT_SIXTENN, FONT_TWELVE } from "../../shared/constants/FontConstant";
 
 export const otpstyles = StyleSheet.create({
     dashboardContainer: {
@@ -10,7 +11,7 @@ export const otpstyles = StyleSheet.create({
     },
     parentView: {
         flex: 1,
-        marginHorizontal: 20,
+        marginHorizontal: 0,
     },
     countDown: {
         alignSelf: "center"
@@ -19,7 +20,6 @@ export const otpstyles = StyleSheet.create({
         marginHorizontal: 5,
         marginVertical: 25,
         backgroundColor: WHITE,
-        elevation: 8,
         borderRadius: 5,
     },
     headerText: {
@@ -28,10 +28,9 @@ export const otpstyles = StyleSheet.create({
     },
 
     textHeader: {
-        fontSize: 15,
+        fontSize: 37,
         lineHeight: 50,
         color: GREY,
-        fontWeight: 'bold',
         alignSelf: 'center',
         marginTop: 8
     },
@@ -42,15 +41,16 @@ export const otpstyles = StyleSheet.create({
         color:WHITE,
     },
     loginInformation: {
-        alignItems: 'center',
+        // alignItems: 'center',
         marginTop: 5,
-        marginHorizontal: 20
+        // marginHorizontal: 20
     },
     otpInformation: {
-        fontSize: 13,
-        lineHeight: 20,
+        fontSize: 12,
+        lineHeight: 17,
         color: LIGHTGREY,
-        marginHorizontal: 25
+        marginHorizontal: 25,
+        fontWeight:400
     },
     phoneNumber: {
         fontSize: 13,
@@ -81,17 +81,19 @@ export const otpstyles = StyleSheet.create({
         marginHorizontal: 10,
         borderColor: GREEN,
         backgroundColor: GREEN
-
     },
     resOtp: {
-        marginHorizontal: 16,
-        marginTop: 10
+        marginTop: 10,
+        flexDirection:'row',
+        justifyContent:'center'
     },
     resendOTPTxt: {
-        color: BGRED,
+        color: GREY_SHADE,
         fontSize: 12,
-        textDecorationLine: "underline",
-        fontWeight: 'bold'
+    },
+    resendOTP:{
+        color: LIGHT_BLUE,
+    paddingLeft:0
     },
     otpFormTxt: {
         textAlign: "center",
@@ -118,9 +120,10 @@ export const otpstyles = StyleSheet.create({
         justifyContent: "center",
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor: JPURPLE,
+        borderColor: BORDER_COLOR,
         color: WHITE,
-        width: 33,
+        width: 43,
+        height: 43,
         padding: 7
     },
     btnContinue: {
@@ -195,3 +198,90 @@ export const otpstyles = StyleSheet.create({
     }
 }
 );
+// export const otpstyles = StyleSheet.create ({
+//     centeredView: {
+//         flex: 1,
+//         justifyContent: "center",
+//         alignItems: "center",
+//         backgroundColor: LIGHTBLACK
+//     },
+//     modalView: {
+//         backgroundColor: WHITE,
+//         shadowColor: BLACK,
+//         shadowOpacity: 0.25,
+//         borderRadius: 5,
+//         paddingBottom: 30,
+//         width: widthPercentageToDP(80)
+//     },
+//     modalTextView: {
+//         fontSize: FONT_EIGHTEEN,
+//         fontWeight: '600',
+//         lineHeight: 20,
+//         color: VERYDARK_GRAYISHRED,
+//     },
+//     formbutton: {
+//         flexDirection: "row",
+//         justifyContent: "space-between",
+//         marginTop: 20,
+//         marginHorizontal: 20
+//     },
+//     crossIcon: {
+//         alignItems: 'flex-end',
+//     },
+//     buttonYesStyle: {
+//         borderRadius: 5,
+//         elevation: 2,
+//         backgroundColor: PANTONE,
+//         height: 40,
+//         width: '40%',
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//     },
+//     buttonNoStyle: {
+//         borderRadius: 5,
+//         elevation: 2,
+//         backgroundColor: BLUE_ALICE,
+//         height: 40,
+//         width: '40%',
+//         borderWidth: 1,
+//         borderColor: BROWN,
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//     },
+//     formNoTxt: {
+//         color: VERYDARK_GRAYISHRED,
+//         fontSize: FONT_SIXTENN,
+//         lineHeight: 22,
+//         fontWeight: 'bold'
+//     },
+//     formYesTxt: {
+//         color: VERYDARK_GRAYISHRED,
+//         fontSize: FONT_SIXTENN,
+//         lineHeight: 22,
+//         fontWeight: 'bold'
+//     },
+//     inputText: {
+//         height: 40,
+//         fontSize: FONT_SIXTENN,
+//         lineHeight: 30,
+//         marginHorizontal: 20,
+//         marginBottom: 10
+//     },
+//     crossIconView: {
+//         marginHorizontal: 10,
+//         marginBottom: 20,
+//         alignItems: 'center'
+//     },
+//     formTxt: {
+//         marginHorizontal: 20,
+//         marginTop: 5
+//     },
+//     erroFormTxt: {
+//         color: BGRED,
+//         fontSize: FONT_TWELVE,
+//         lineHeight: 13
+//     },
+//     emptyText: {
+//         width: 30,
+//     }
+// })

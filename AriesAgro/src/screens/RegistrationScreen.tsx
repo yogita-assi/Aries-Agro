@@ -11,12 +11,13 @@ import { useNavigation } from "@react-navigation/native";
 import CustomTextInput from "../components/inputs/CustomTextInput";
 import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
+import { CHOOSE_INTEREST, CHOOSE_YOUR_INTREST, FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
+import { PRODUCT_DETAILS } from "../routes/Routes";
 import { ADDRESS_REGEX, WORD_WITH_SPACE_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../guards/AuthNavigator";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
-import { CHOOSE_INTEREST, TAB_SCREEN } from "../routes/Routes";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -76,6 +77,11 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
+        // if (validate()) {
+        //     return
+        // }
+        navigation.navigate(CHOOSE_YOUR_INTREST)
+        // navigation.navigate(PRODUCT_DETAILS)
         navigation.navigate(CHOOSE_INTEREST)
         if (validate()) {
             return
