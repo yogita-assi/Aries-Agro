@@ -138,7 +138,8 @@ export const signInStyle = StyleSheet.create({
         marginHorizontal: 15
     },
     formTxt: {
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginBottom: 10
     },
     erroFormTxt: {
         color: BGRED,
@@ -178,7 +179,9 @@ export const signInStyle = StyleSheet.create({
     txtPrivacy: {
         color: MDBLUE,
         fontWeight: 'bold',
+    },
+    headerTxt: {
+        flexDirection: 'row', marginTop: 30, alignSelf: 'center'
     }
-
 }
 );

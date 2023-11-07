@@ -2,24 +2,23 @@
 import { View, StatusBar, Pressable } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { WHITE, JPURPLE } from "../shared/constants/color";
+import { WHITE, JPURPLE } from "../../shared/constants/color";
 import { useState } from "react";
-import { otpstyles } from "./OtpScreen/otpstyles";
-import CustomButton from "../components/button/CustomButton";
-import TopHeaderFixed from "../shared/constants/TopHeaderFixed";
+import { otpstyles } from "../OtpScreen/otpstyles";
+import CustomButton from "../../components/button/CustomButton";
+import TopHeaderFixed from "../../shared/constants/TopHeaderFixed";
 import { useNavigation } from "@react-navigation/native";
-import CustomTextInput from "../components/inputs/CustomTextInput";
-import CustomFontText from "../fontfamily/CustomFontText";
-import { registrationStyle } from "./style/registrationStyle";
-import { CHOOSE_INTEREST, CHOOSE_YOUR_INTREST, FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
-import { PRODUCT_DETAILS } from "../routes/Routes";
-import { ADDRESS_REGEX, WORD_WITH_SPACE_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
+import CustomTextInput from "../../components/inputs/CustomTextInput";
+import CustomFontText from "../../fontfamily/CustomFontText";
+import { registrationStyle } from "../style/registrationStyle";
+import { ADDRESS_REGEX, NUMBER_REGEX, PAN_NUMBER_REGEX, PINCODE_REGEX, WORD_WITH_SPACE_REGEX, regex } from "../../shared/constants/regular-expressions-utilities";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../guards/AuthNavigator";
-import loginApi from "../api/loginApi";
-import { useModalContext } from "../modalContext/ModalContext";
+import { RootStackParamList } from "../../guards/AuthNavigator";
+import loginApi from "../../api/loginApi";
+import { useModalContext } from "../../modalContext/ModalContext";
+import { DEALER_APPROVAL, TAB_SCREEN } from "../../routes/Routes";
 
-const RegistrationScreen = () => {
+const DealerRegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const { openModal }: any = useModalContext();
     const [isLoader, setLoader] = useState(false);
@@ -27,29 +26,36 @@ const RegistrationScreen = () => {
         firstName: "",
         lastName: "",
         address: "",
-        mobileNumber: ""
+        panNumber: "",
+        pinCode: ""
     })
     const [errorMsg, setErrorMsg]: any = useState({
         firstName: null,
         lastName: null,
         address: null,
-        mobileNumber: null
+        panNumber: null,
+        pinCode: null
     })
     const onChangeFormName = (name: any, text: any) => {
         const trimmedText = text.replace(WORD_WITH_SPACE_REGEX, "").trim();
         setFormValue({ ...formValue, [name]: trimmedText });
         setErrorMsg({ ...errorMsg, [name]: trimmedText ? null : errorMsg[name] });
     }
-    const onChangeInput = (event: any, name: any) => {
-        const { text } = event.nativeEvent;
-        setFormValue({ ...formValue, [name]: text.replace(/\D/g, "") });
-        setErrorMsg({ ...errorMsg, mobileNumber: null });
+    const onChangeForm = (name: any, text: any, isNumber = false) => {
+        if (isNumber) {
+            setFormValue({ ...formValue, [name]: text.replace(NUMBER_REGEX, "") });
+            setErrorMsg({ ...errorMsg, [name]: text ? null : errorMsg[name] });
+        } else {
+            setFormValue({ ...formValue, [name]: text });
+            setErrorMsg({ ...errorMsg, [name]: text ? null : errorMsg[name] });
+        }
     }
     const validate = () => {
         const validFormValues = {
             firstName: "",
             lastName: "",
-            mobileNumber: "",
+            pinCode: "",
+            panNumber: "",
             address: ""
         };
         let isValid = false;
@@ -65,30 +71,25 @@ const RegistrationScreen = () => {
             validFormValues.address = "Please enter valid address"
             isValid = true;
         }
-        if ((!formValue.mobileNumber || formValue.mobileNumber.length <= 9)) {
-            validFormValues.mobileNumber = "Please enter a valid 10 digit mobile number";
+        if ((formValue.pinCode.length == 0 || !PINCODE_REGEX.test(formValue.pinCode.toString()))) {
+            validFormValues.pinCode = "Please enter valid Pincode Number"
             isValid = true;
         }
-        if (formValue.mobileNumber && !regex.test(formValue.mobileNumber.toString())) {
-            validFormValues.mobileNumber = "Please enter a valid 10 digit mobile number"
+        if ((formValue.panNumber.length == 0 || !PAN_NUMBER_REGEX.test(formValue.panNumber.toString()))) {
+            validFormValues.panNumber = "Please enter valid Pan Number"
             isValid = true;
         }
         setErrorMsg(validFormValues);
         return isValid;
     }
     const onSubmit = async () => {
-        // if (validate()) {
-        //     return
-        // }
-        navigation.navigate(CHOOSE_YOUR_INTREST)
-        // navigation.navigate(PRODUCT_DETAILS)
-        navigation.navigate(CHOOSE_INTEREST)
+        navigation.navigate(DEALER_APPROVAL)
         if (validate()) {
             return
         }
         const requestBody = {
             email: "",
-            phoneNumber: formValue?.mobileNumber,
+            phoneNumber: formValue?.panNumber,
             roleId: 4,
             firstName: formValue?.firstName,
             middleName: "",
@@ -125,7 +126,7 @@ const RegistrationScreen = () => {
                 <View style={otpstyles.contentHeader}>
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter First Name"
+                        label="Enter Dealer First Name"
                         style={registrationStyle.inputText}
                         outlineColor={JPURPLE}
                         maxLength={50}
@@ -140,7 +141,7 @@ const RegistrationScreen = () => {
                     }
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter Last Name"
+                        label="Enter Dealer Last Name"
                         style={registrationStyle.inputText}
                         outlineColor={JPURPLE}
                         maxLength={50}
@@ -155,18 +156,17 @@ const RegistrationScreen = () => {
                     }
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter Mobile Number"
-                        style={registrationStyle.inputText}
-                        outlineColor={JPURPLE}
+                        label="Pan Number"
+                        autoCapitalize='characters'
                         maxLength={10}
-                        keyboardType="numeric"
-                        value={formValue?.mobileNumber}
-                        onChange={(e: any) => onChangeInput(e, 'mobileNumber')}
-                        error={errorMsg.mobileNumber}
+                        style={registrationStyle.inputText}
+                        value={formValue?.panNumber}
+                        onChangeText={(text: any) => onChangeForm("panNumber", text)}
+                        error={!!errorMsg.panNumber}
                     />
-                    {errorMsg.mobileNumber &&
+                    {errorMsg.panNumber &&
                         <View style={registrationStyle.formTxt}>
-                            <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.mobileNumber}</CustomFontText>
+                            <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.panNumber}</CustomFontText>
                         </View>
                     }
                     <CustomTextInput
@@ -184,6 +184,21 @@ const RegistrationScreen = () => {
                             <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.address}</CustomFontText>
                         </View>
                     }
+                    <CustomTextInput
+                        mode="outlined"
+                        label="Pincode"
+                        style={registrationStyle.inputText}
+                        maxLength={6}
+                        keyboardType="numeric"
+                        value={formValue?.pinCode}
+                        onChangeText={(event: any) => onChangeForm("pinCode", event, true)}
+                        error={errorMsg.pinCode}
+                    />
+                    {errorMsg.pinCode &&
+                        <View style={registrationStyle.formTxt}>
+                            <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.pinCode}</CustomFontText>
+                        </View>
+                    }
                     <View style={registrationStyle.btnGenerateOtp}>
                         <CustomButton label={"Submit"} onPress={() => onSubmit()} />
                     </View>
@@ -192,4 +207,4 @@ const RegistrationScreen = () => {
         </SafeAreaView>
     )
 }
-export default RegistrationScreen;
+export default DealerRegistrationScreen;
