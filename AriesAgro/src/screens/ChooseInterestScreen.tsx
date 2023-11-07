@@ -1,8 +1,8 @@
 
-import { View, StatusBar } from "react-native";
+import { View, StatusBar, Pressable } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { WHITE } from "../shared/constants/color";
+import { BLACK, WHITE } from "../shared/constants/color";
 import CustomButton from "../components/button/CustomButton";
 import TopHeaderFixed from "../shared/constants/TopHeaderFixed";
 import { useNavigation } from "@react-navigation/native";
@@ -25,6 +25,14 @@ const ChooseInterestScreen = () => {
                 onGoBack={() => navigation.goBack()}
                 topHeight={100}>
             </TopHeaderFixed>
+            <View style={chooseInterestStyle.skipView}>
+                <Pressable onPress={() => navigation.navigate(TAB_SCREEN)} style={({ pressed }) => [
+                    { opacity: pressed ? 0.5 : 1.0 }
+                ]}>
+                    <TextArchivoBold style={chooseInterestStyle.skipBtn}>Skip
+                    </TextArchivoBold>
+                </Pressable>
+            </View>
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={chooseInterestStyle.parentView} contentContainerStyle={registrationStyle.mainContainerView}>
                 <View>
                     <TextArchivoBold style={chooseInterestStyle.txtInterest}>
@@ -35,26 +43,26 @@ const ChooseInterestScreen = () => {
                     </TextArchivoBold>
                     <View style={chooseInterestStyle.btnView}>
                         <View style={chooseInterestStyle.btnOrganicBio}>
-                            <CustomButton label={"Organic & Bio Products"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Organic & Bio Products"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                         <View style={chooseInterestStyle.btnFertilizer}>
-                            <CustomButton label={"Fertilizers"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Fertilizers"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                     </View>
                     <View style={chooseInterestStyle.btnView}>
                         <View style={chooseInterestStyle.btnOrganicBio}>
-                            <CustomButton label={"Plant Protection"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Plant Protection"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                         <View style={chooseInterestStyle.btnFertilizer}>
-                            <CustomButton label={"Sugarcane"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Sugarcane"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                     </View>
                     <View style={chooseInterestStyle.btnView}>
                         <View style={chooseInterestStyle.btnOrganicBio}>
-                            <CustomButton label={"Potato"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Potato"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                         <View style={chooseInterestStyle.btnFertilizer}>
-                            <CustomButton label={"Grape"} />
+                            <CustomButton style={chooseInterestStyle.btnButtonStyle} label={"Grape"} textstyle={chooseInterestStyle.txtOragnic} />
                         </View>
                     </View>
                 </View>

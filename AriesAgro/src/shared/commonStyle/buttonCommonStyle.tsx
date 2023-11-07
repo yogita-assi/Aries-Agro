@@ -3,7 +3,7 @@ import { JPURPLE, MDBLUE, VERYDARK_GRAYISHRED, WHITE } from '../constants/color'
 
 export const buttonCommonStyle = StyleSheet.create({
     buttonStyle: {
-        borderRadius: 5,
+        borderRadius: 9,
         backgroundColor: MDBLUE,
         justifyContent: 'center',
         alignItems: 'center',
