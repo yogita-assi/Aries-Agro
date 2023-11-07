@@ -99,7 +99,6 @@ const OtpScreen = ({ route: { params }, route }: any) => {
         <SafeAreaView style={otpstyles.dashboardContainer}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
             <TopHeaderFixed
-                leftIcon="arrow-back"
                 leftIconSize={20}
                 onGoBack={() => navigation.goBack()}
                 topHeight={100}>
@@ -137,7 +136,7 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                         <CountDown
                             sessionTimeOut={sessionTimeOut}
                             labelText="Resend code in"
-                            until={10}
+                            until={59}
                             onFinish={onCountFinish}
                             key={otpId}
                             size={15}
@@ -153,9 +152,9 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                         </Pressable>
                     </View>
                     }
-                    <CustomButton style={otpstyles.btnContinue} label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
                 </View>
             </KeyboardAwareScrollView>
+            <CustomButton label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
         </SafeAreaView>
     )
 }
