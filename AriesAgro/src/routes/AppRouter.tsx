@@ -33,20 +33,21 @@ const Tab = createBottomTabNavigator()
 function AppRouter(): JSX.Element {
     const { state }: any = useAuthContext();
     const isUserVerify = JSON.parse(state?.userInfo)?.isUser
-    console.log(isUserVerify,"...")
+    console.log(isUserVerify, "...")
     return (
         <>
             <StatusBar backgroundColor={WHITE} barStyle="dark-content" />
             <RootStack.Navigator screenOptions={{ headerShown: false }}>
-                {isUserVerify && <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />}
-                <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
-                <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
-                <RootStack.Screen name={PRODUCT_DETAILS} options={{ headerShown: false }} component={ProductDetailsScreen} />
-                <RootStack.Screen name={VIEW_PRODUCT_DETAILS} options={{ headerShown: false }} component={ViewProductDetaillsScreen} />
-                <RootStack.Screen name={TAB_SCREEN} options={{ headerShown: false }} component={TabScreen} />
-                <RootStack.Screen name={DEALER_REGISTRATION} options={{ headerShown: false }} component={DealerRegistrationScreen} />
-                <RootStack.Screen name={DEALER_APPROVAL} options={{ headerShown: false }} component={DealerApprovalScreen} />
-                <RootStack.Screen name={CHOOSE_INTEREST} options={{ headerShown: false }} component={ChooseInterestScreen} />
+                {isUserVerify ? (
+                    <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
+                ) : (
+                    <>
+                        <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />
+                        <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
+                        <RootStack.Screen name={CHOOSE_INTEREST} options={{ headerShown: false }} component={ChooseInterestScreen} />
+                        <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
+                    </>
+                )}
             </RootStack.Navigator >
         </>
     );

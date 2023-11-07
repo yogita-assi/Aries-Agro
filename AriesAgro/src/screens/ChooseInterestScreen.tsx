@@ -15,6 +15,7 @@ import { TAB_SCREEN } from "../routes/Routes";
 import { useEffect, useState } from "react";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
+import FarmerDashboard from "./dashboard/FarmerDashboard";
 
 const ChooseInterestScreen = () => {
     const { openModal }: any = useModalContext();
@@ -32,7 +33,7 @@ const ChooseInterestScreen = () => {
     }
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const buttonsPerRow = 2;
-    const numRows = Math.ceil(interestData.length / buttonsPerRow);
+    const numRows = Math.ceil(interestData?.length / buttonsPerRow);
     const rows = Array.from({ length: numRows }, (_, index) =>
         interestData.slice(index * buttonsPerRow, (index + 1) * buttonsPerRow)
     );
@@ -79,7 +80,7 @@ const ChooseInterestScreen = () => {
                 </View>
             </KeyboardAwareScrollView>
             <View style={chooseInterestStyle.btnContinue}>
-                <CustomButton label={"Next"} onPress={() => navigation.navigate(TAB_SCREEN)} />
+                <CustomButton label={"Next"} onPress={() => navigation.navigate(FarmerDashboard)} />
             </View>
         </SafeAreaView>
     );

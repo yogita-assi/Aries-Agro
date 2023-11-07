@@ -62,12 +62,11 @@ const OtpScreen = ({ route: { params }, route }: any) => {
             };
             setLoader(true);
             const response = await loginApi.verifyOTP(requestBody);
-            console.log(response?.data, "data")
             if (response && response) {
-                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
                 if (response?.data?.data) {
                     updateState(ASYNC_STORAGE.USERINFO, JSON.stringify(response?.data?.data));
                 }
+                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
             } else {
                 Alert.alert(ALERT_MESSAGE.INCORRECT_INPUT);
             }
@@ -153,9 +152,7 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                         </Pressable>
                     </View>
                     }
-
                 </View>
-
             </KeyboardAwareScrollView>
             <CustomButton label={"Continue"} onPress={() => onVerifyOTP()} isLoader={isLoader} />
         </SafeAreaView>
