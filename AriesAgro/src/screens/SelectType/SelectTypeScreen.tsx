@@ -11,7 +11,7 @@ import TopHeaderFixed from "../../shared/constants/TopHeaderFixed";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
-import { REGESTRATION_SCREEN } from "../../routes/Routes";
+import { DEALER_REGISTRATION, REGESTRATION_SCREEN } from "../../routes/Routes";
 import IntroSliderFirstImage from "../../svg/IntrosliderSvg/IntroSliderFirstImage";
 
 const SelectTypeScreen = () => {
@@ -29,7 +29,9 @@ const SelectTypeScreen = () => {
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={otpstyles.parentView} contentContainerStyle={otpstyles.mainContainerView}>
                 <View style={otpstyles.contentHeader}>
                     <View style={otpstyles.txtDistributorView}>
-                        <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Distributor?</TextArchivoBold>
+                        <Pressable onPress={() => navigation.navigate(DEALER_REGISTRATION)}>
+                            <TextArchivoBold style={otpstyles.textHeaderSelect}>Are You A Distributor?</TextArchivoBold>
+                        </Pressable>
                     </View>
                     <View>
                         <TextArchivoBold style={otpstyles.txtOr}> OR </TextArchivoBold>
