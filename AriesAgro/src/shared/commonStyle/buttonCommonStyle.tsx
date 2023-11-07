@@ -9,7 +9,7 @@ export const buttonCommonStyle = StyleSheet.create({
         alignItems: 'center',
         flexDirection: "row",
         height: 40,
-        marginVertical: 20,
+        marginVertical: 10,
         marginHorizontal: 20,
     },
     buttonText: {

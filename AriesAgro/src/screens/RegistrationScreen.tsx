@@ -16,7 +16,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../guards/AuthNavigator";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
-import { TAB_SCREEN } from "../routes/Routes";
+import { CHOOSE_INTEREST, TAB_SCREEN } from "../routes/Routes";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -76,7 +76,7 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        navigation.navigate(TAB_SCREEN)
+        navigation.navigate(CHOOSE_INTEREST)
         if (validate()) {
             return
         }
