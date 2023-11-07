@@ -50,7 +50,8 @@ export const chooseInterestStyle = StyleSheet.create({
         backgroundColor: GREY_LIGHT
     },
     txtOragnic: {
-        color: BLACK
+        color: BLACK,
+        fontSize: 14
     },
     skipView: {
         alignSelf: "flex-end",
