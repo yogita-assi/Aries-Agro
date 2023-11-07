@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ArchivoBold, BGRED, BLACK, LIGHTGREY, MDBLUE, WHITE } from '../../shared/constants/color';
+import { ArchivoBold, BGRED, BLACK, GREY_LIGHT, LIGHTGREY, MDBLUE, WHITE } from '../../shared/constants/color';
 import { FONT_FIFTEEN, FONT_SIXTENN, FONT_TEN, FONT_THIRTEEN, FONT_TWENTY, FONT_TWENTYFIVE, FONT_TWENTYFOUR } from '../../shared/constants/FontConstant';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 
@@ -47,7 +47,7 @@ export const chooseInterestStyle = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     btnButtonStyle: {
-        backgroundColor: LIGHTGREY
+        backgroundColor: GREY_LIGHT
     },
     txtOragnic: {
         color: BLACK
