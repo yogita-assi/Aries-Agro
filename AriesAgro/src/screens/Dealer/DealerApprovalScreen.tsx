@@ -11,7 +11,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../guards/AuthNavigator";
 import TextArchivoBold from "../../shared/fontfamily/TextArchivoBold";
 import { dealerStyle } from "../style/dealerStyle";
-import { TAB_SCREEN } from "../../routes/Routes";
+import { FARMERDASHBOARD, TAB_SCREEN } from "../../routes/Routes";
 
 const DealerApprovalScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -36,7 +36,7 @@ const DealerApprovalScreen = () => {
                 </View>
             </KeyboardAwareScrollView>
             <View style={dealerStyle.btnContinue}>
-                <CustomButton label={"Continue"} onPress={() => navigation.navigate(TAB_SCREEN)} />
+                <CustomButton label={"Continue"} onPress={() => navigation.navigate(FARMERDASHBOARD)} />
             </View>
         </SafeAreaView>
     )

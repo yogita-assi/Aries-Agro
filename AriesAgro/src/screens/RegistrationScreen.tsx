@@ -77,12 +77,6 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        // if (validate()) {
-        //     return
-        // }
-        navigation.navigate(CHOOSE_YOUR_INTREST)
-        // navigation.navigate(PRODUCT_DETAILS)
-        navigation.navigate(CHOOSE_INTEREST)
         if (validate()) {
             return
         }

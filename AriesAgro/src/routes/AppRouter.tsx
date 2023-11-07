@@ -46,6 +46,8 @@ function AppRouter(): JSX.Element {
                         <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
                         <RootStack.Screen name={CHOOSE_INTEREST} options={{ headerShown: false }} component={ChooseInterestScreen} />
                         <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={FarmerDashboard} />
+                        <RootStack.Screen name={DEALER_REGISTRATION} options={{ headerShown: false }} component={DealerRegistrationScreen} />
+                        <RootStack.Screen name={DEALER_APPROVAL} options={{ headerShown: false }} component={DealerApprovalScreen} />
                     </>
                 )}
             </RootStack.Navigator >
