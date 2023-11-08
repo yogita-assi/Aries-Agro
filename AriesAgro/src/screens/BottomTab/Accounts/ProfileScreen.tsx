@@ -12,6 +12,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../guards/AuthNavigator";
 import { useModalContext } from "../../../modalContext/ModalContext";
 import ProductImage from "../../../svg/ProductImage";
+import ProfilePicIcon from "../../../svg/ProfilePicIcon";
+import AccountImage from "../../../svg/AccountSvg/AccountImage";
 
 const ProfileScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -28,7 +30,7 @@ const ProfileScreen = () => {
             </TopHeaderFixed>
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={profileStyle.parentView} contentContainerStyle={profileStyle.mainContainerView}>
                 <View style={profileStyle.imageView}>
-                    <ProductImage height={90} width={150} />
+                    <AccountImage height={90} width={150} />
                 </View>
                 <View style={profileStyle.contentHeader}>
                     <CustomTextInput

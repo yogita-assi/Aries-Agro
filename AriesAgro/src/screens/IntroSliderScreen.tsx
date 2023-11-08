@@ -85,6 +85,7 @@ const IntroSliderScreen = () => {
 
     const onSkip = () => {
         setShowSlider(false);
+        updateState(ASYNC_STORAGE.ISINTROSLIDERDONE, JSON.stringify(true));
     }
     if (showSlider) {
         return (
