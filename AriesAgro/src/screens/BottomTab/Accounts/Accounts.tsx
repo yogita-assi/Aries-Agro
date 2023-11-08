@@ -29,12 +29,12 @@ const Accounts = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     return (
         <SafeAreaView style={accountStyle.mainCardView}>
-            <TextArchivoBold style={accountStyle.txtShopName}>Shop Name</TextArchivoBold>
+            <TextArchivoBold style={accountStyle.txtShopName}>Krushi Fertilizers</TextArchivoBold>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
             <ProductImage height={80} width={150} />
             <View style={accountStyle.mainAccountDetails}>
                 <AccountNameImage height={23} width={40} />
-                <TextArchivoBold style={accountStyle.txtAccountName}>Name</TextArchivoBold>
+                <TextArchivoBold style={accountStyle.txtAccountName}>Datta Shinde</TextArchivoBold>
             </View>
             <View style={accountStyle.accountDetailsName}>
                 <AccountProfile height={23} width={40} />

@@ -13,7 +13,8 @@ export const accountStyle = StyleSheet.create({
         lineHeight: 30,
         color: BLACK,
         marginVertical: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
     txtAccountName: {
         fontSize: FONT_FIFTEEN,
