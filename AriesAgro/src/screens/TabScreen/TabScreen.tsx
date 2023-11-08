@@ -19,6 +19,7 @@ import AccountIconFill from '../../svg/AccountIconFill';
 import DealerRegistrationScreen from '../Dealer/DealerRegistrationScreen';
 import DealerIconFill from '../../svg/DealerIconFill';
 import DealerIcon from '../../svg/DealerIcon';
+import Accounts from '../BottomTab/Accounts/Accounts';
 
 const Tab = createBottomTabNavigator()
 const TabScreen = () => {
@@ -38,35 +39,24 @@ const TabScreen = () => {
                     )
                 }}
             />
-
-            {/* <Tab.Screen name="Order" component={OrderScreen}
-                options={{
-                    tabBarIcon: ({ color, size, focused }) => (focused ? <OrderIconFill width={24} height={45}/>:<OrderIcon width={60} height={25} />
-                    )
-                }} /> */}
+           
             <Tab.Screen name="Dealer" component={DealerScreen}
                 options={{
                     tabBarIcon: ({ color, size, focused }) => (focused ? <DealerIconFill width={90} height={80} /> : <DealerIcon width={45} height={50} />
                     )
                 }} />
-            {/* <Tab.Screen name="Revenue" component={ProductDetailsScreen}
-                options={{
-                    tabBarIcon: ({ color, size, focused }) => (<RevenueIcon width={70} height={70}/>
-                    )
-                }} /> */}
+          
             <Tab.Screen name="Products" component={ProductDetailsScreen}
                 options={{
                     tabBarIcon: ({ color, size, focused }) => (focused ? <ProductsIconFill width={55} height={45} /> : <ProductsIcon width={25} height={40} />
                     )
                 }} />
 
-            <Tab.Screen name="Account" component={DealerScreen}
+            <Tab.Screen name="Account" component={Accounts}
                 options={{
                     tabBarIcon: ({ color, size, focused }) => (focused ? <AccountIconFill width={25} height={40} /> : <AccountIcon width={25} height={40} />
                     )
                 }} />
-
-
         </Tab.Navigator>
     )
 }

@@ -107,7 +107,7 @@ const OtpScreen = ({ route: { params }, route }: any) => {
                 <View style={otpstyles.contentHeaderWrapper}>
                     <TextArchivoBold style={otpstyles.textHeader}>Verification Code</TextArchivoBold>
                     <View style={otpstyles.loginInformation}>
-                        <TextArchivoBold style={otpstyles.otpInformation}>Please type the verification code and sent to {mobileNumber} </TextArchivoBold>
+                        <TextArchivoBold style={otpstyles.otpInformation}>Please type the verification code sent to +91{mobileNumber} </TextArchivoBold>
                     </View>
                     <View style={otpstyles.verifyInput}>
                         <CodeField

@@ -16,9 +16,12 @@ import { useEffect, useState } from "react";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
 import FarmerDashboard from "./dashboard/FarmerDashboard";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ChooseInterestScreen = () => {
     const { openModal }: any = useModalContext();
+    const accessToken = AsyncStorage.getItem('accessToken')
+    console.log(accessToken, "accessToken")
     const [interestData, setInterestData]: any = useState();
     useEffect(() => {
         getInterestDetails();

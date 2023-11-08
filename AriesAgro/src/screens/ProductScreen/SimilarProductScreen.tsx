@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar, View, TextInput } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BLACK, WHITE } from '../../shared/constants/color';
+import { WHITE } from '../../shared/constants/color';
 import { useNavigation } from '@react-navigation/core';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../guards/AuthNavigator';
 import { flatlistView, renderViewChild } from '../../shared/constants/ListUI';
 import Pressable from '../../shared/constants/Pressable';
-import BackButtonIcon from '../../svg/BackButtonIcon';
 import { productStyle } from '../../shared/styles/productStyle';
 import productApi from '../../api/productApi';
 import { useModalContext } from '../../modalContext/ModalContext';
 import ProductImage from '../../svg/ProductImage';
 import { VIEW_PRODUCT_DETAILS } from '../../routes/Routes';
+import TextArchivoBold from '../../shared/fontfamily/TextArchivoBold';
 
-const ProductDetailsScreen = () => {
+const SimilarProductScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [searchText, setSearchText] = useState("");
     const { openModal }: any = useModalContext();
@@ -25,9 +25,6 @@ const ProductDetailsScreen = () => {
     const [formValue, setFormValue] = useState({
         productData: '',
     });
-    const handleSearchInputChange = (search: any) => {
-        setSearchText(search);
-    };
     useEffect(() => {
         productList()
     }, [searchText, pageNumber])
@@ -68,14 +65,11 @@ const ProductDetailsScreen = () => {
             setLoader(true)
         }
     };
-    const handleProductPress = (productId: any) => {
-        navigation.navigate(VIEW_PRODUCT_DETAILS, { productId });
-    }
     const renderItem = (item: any) => {
         return (
             <View
                 style={productStyle.rightLeftBoxContainer}>
-                <Pressable style={productStyle.cardContainer} onPress={() => handleProductPress(item.id)}>
+                <Pressable style={productStyle.cardContainer} onPress={() => navigation.navigate(VIEW_PRODUCT_DETAILS)}>
                     <View style={productStyle.imageContainer}>
                         <ProductImage height={70} />
                     </View>
@@ -95,23 +89,10 @@ const ProductDetailsScreen = () => {
     return (
         <SafeAreaView style={productStyle.mainCardView}>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
-            <View style={productStyle.textInputContainer}>
-                <Pressable
-                    style={productStyle?.gobackStyle}
-                    onPress={() => navigation.goBack()}>
-                    <BackButtonIcon width={30} height={20} />
-                </Pressable>
-                <TextInput
-                    placeholder="Search"
-                    placeholderTextColor={BLACK}
-                    style={{ ...productStyle.textInput }}
-                    value={searchText}
-                    onChangeText={(e: any) => handleSearchInputChange(e)}
-                />
-            </View>
+            <TextArchivoBold style={productStyle.txtSimilarProduct}>Similar products</TextArchivoBold>
             {flatlistView(formValue?.productData, renderItem, refreshing, productList, onEndReached)}
         </SafeAreaView>
     )
 }
 
-export default ProductDetailsScreen;
+export default SimilarProductScreen;
