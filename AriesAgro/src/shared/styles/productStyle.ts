@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { ArchivoBold, BLACK, GRAY_SHADE, JPURPLE, WHITE } from "../constants/color";
+import { ArchivoBold, BLACK, GRAY_SHADE, JPURPLE, MDBLUE, WHITE } from "../constants/color";
 import { widthPercentageToDP } from "react-native-responsive-screen";
-import { FONTFAMILY_ISTOK_WEB, FONT_ELEVEN, FONT_FIFTEEN } from "../constants/FontConstant";
+import { FONTFAMILY_ISTOK_WEB, FONT_ELEVEN, FONT_FIFTEEN, FONT_FOURTEEN, FONT_THIRTEEN, FONT_TWELVE, FONT_TWENTY } from "../constants/FontConstant";
 
 export const productStyle = StyleSheet.create({
     searchSection: {
@@ -125,7 +125,6 @@ export const productStyle = StyleSheet.create({
     },
     //ViewProduct details
     imageViewContainer: {
-        borderWidth: 0.2,
         alignSelf: 'center',
         borderRadius: 4,
         padding: 10,
@@ -181,4 +180,36 @@ export const productStyle = StyleSheet.create({
         color: 'blue',
         fontSize: 10,
     },
+    txtProductDetails: {
+        color: BLACK,
+        fontSize: FONT_FIFTEEN,
+        marginVertical: 10,
+        fontWeight: 'bold',
+        marginHorizontal: 30
+    },
+    txtInformation: {
+        color: BLACK,
+        fontSize: FONT_THIRTEEN,
+        marginHorizontal: 30
+    },
+    mainLinkView: {
+        flexDirection: 'row', marginVertical: 20,
+        justifyContent: 'space-around',
+        right: 10
+    },
+    txtProductLink: {
+        color: MDBLUE,
+        fontSize: FONT_FOURTEEN,
+        marginHorizontal: 30,
+        textDecorationLine: 'underline',
+        fontWeight: 'bold'
+    },
+    //SimilarProduct
+    txtSimilarProduct: {
+        color: BLACK,
+        fontSize: FONT_FIFTEEN,
+        marginVertical: 10,
+        fontWeight: 'bold',
+        marginHorizontal: 30
+    }
 });

@@ -26,7 +26,7 @@ import AccoountSetting from "../../../svg/AccountSvg/AccoountSetting";
 import { PROFILE_SCREEN } from "../../../routes/Routes";
 
 const Accounts = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     return (
         <SafeAreaView style={accountStyle.mainCardView}>
             <TextArchivoBold style={accountStyle.txtShopName}>Shop Name</TextArchivoBold>

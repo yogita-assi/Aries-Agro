@@ -79,7 +79,6 @@ const RegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        // navigation.navigate(CHOOSE_INTEREST)
         if (validate()) {
             return
         }
@@ -102,7 +101,6 @@ const RegistrationScreen = () => {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
             if (response?.data) {
-                await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
                 navigation.navigate(CHOOSE_INTEREST)
             }
         } catch (error: any) {
