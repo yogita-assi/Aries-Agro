@@ -12,7 +12,7 @@ const verifyOTP = (requestBody: any) => {
 }
 const registerUser = (requestBody: any) => {
     const url = `${ENVIRONMENT.AUTH_API_URL}auth/user`;
-    return axios.post(url, requestBody);
+    return authAxiosInstance.post(url, requestBody);
 }
 const interestDetails = () => {
     const url = `${ENVIRONMENT.AUTH_API_URL}interest/get`;
