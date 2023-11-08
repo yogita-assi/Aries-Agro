@@ -43,7 +43,7 @@ function AppRouter(): JSX.Element {
             <RootStack.Navigator screenOptions={{ headerShown: false }}>
                 {isUserVerify ? (
                     <>
-                        <RootStack.Screen name={FARMERDASHBOARD} options={{ headerShown: false }} component={TabScreen} />
+                        <RootStack.Screen name={TAB_SCREEN} options={{ headerShown: false }} component={TabScreen} />
                         <RootStack.Screen name={SELECT_TYPE_SCREEN} options={{ headerShown: false }} component={SelectTypeScreen} />
                         <RootStack.Screen name={REGESTRATION_SCREEN} options={{ headerShown: false }} component={RegistrationScreen} />
                         <RootStack.Screen name={CHOOSE_INTEREST} options={{ headerShown: false }} component={ChooseInterestScreen} />

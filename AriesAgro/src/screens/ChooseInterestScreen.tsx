@@ -83,7 +83,7 @@ const ChooseInterestScreen = () => {
                 </View>
             </KeyboardAwareScrollView>
             <View style={chooseInterestStyle.btnContinue}>
-                <CustomButton label={"Next"} onPress={() => navigation.navigate(FarmerDashboard)} />
+                <CustomButton label={"Next"} onPress={() => navigation.navigate(TAB_SCREEN)} />
             </View>
         </SafeAreaView>
     );
