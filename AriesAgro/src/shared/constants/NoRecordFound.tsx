@@ -10,7 +10,6 @@ const NoRecordFound = (props: any) => {
         <View style={styles.loaderView}>
             <NoRecordImage width={150} height={200} />
             <CustomFontText style={styles.textStyle}>{props?.title}</CustomFontText>
-            <CustomFontText style={styles.textStyle1}>{props?.text}</CustomFontText>
         </View>
     )
 }
