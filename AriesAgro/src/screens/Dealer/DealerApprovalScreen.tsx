@@ -36,7 +36,7 @@ const DealerApprovalScreen = () => {
                 </View>
             </KeyboardAwareScrollView>
             <View style={dealerStyle.btnContinue}>
-                <CustomButton label={"Continue"} onPress={() => navigation.navigate(FARMERDASHBOARD)} />
+                <CustomButton label={"Continue"} onPress={() => navigation.navigate(TAB_SCREEN)} />
             </View>
         </SafeAreaView>
     )
