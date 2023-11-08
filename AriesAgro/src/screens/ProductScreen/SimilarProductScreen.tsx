@@ -75,9 +75,9 @@ const SimilarProductScreen = () => {
                     </View>
                     <View style={productStyle.childMainView}>
                         {renderViewChild(
-                            `${item?.itemName.substring(0, 30)}` || 'N/A',
+                            `${item?.itemName?.substring(0, 30)}` || 'N/A',
                             "",
-                            `${item?.description.substring(0, 60)}...` || 'N/A',
+                            `${item?.description?.substring(0, 60)}...` || 'N/A',
                             ""
                         )}
                         {renderViewChild(item?.purchaseRate || 'N/A', "", "", "")}

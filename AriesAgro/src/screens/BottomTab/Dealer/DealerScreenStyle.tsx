@@ -30,7 +30,7 @@ export const DealerScreenStyle = StyleSheet.create({
         color: BLACK,
     },
     textEnterView: {
-        height: 400
+        height: 400,
     },
 
     buttonView: {
@@ -38,9 +38,8 @@ export const DealerScreenStyle = StyleSheet.create({
         color: RED
     },
     textInquiry: {
-        marginHorizontal: 20,
-        marginVertical: 80,
-       alignContent:'center'
+        marginHorizontal: 20,  
+       
     },
     textView: {
         color: GREY_COLOR
@@ -253,7 +252,7 @@ export const DealerScreenStyle = StyleSheet.create({
     },
     mainInquiryView: {
         flex: 1,
+        justifyContent:'center',
         backgroundColor: WHITE,
-
     }
 });

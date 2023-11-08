@@ -1,16 +1,18 @@
 import { StyleSheet } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
-import { ArchivoBold, BLACK, GRAY_BORDER, GREEN, GREY, GREY_BORDER, JPURPLE, LIGHTGREY, RED, WHITE } from '../../shared/constants/color';
+import { ArchivoBold, BLACK, GRAY_BORDER, GREEN, GREY, GREY_BORDER, JPURPLE, LIGHTGREY, MDBLUE, RED, WHITE } from '../../shared/constants/color';
 import { FONT_ELEVEN } from '../../shared/constants/FontConstant';
 
 
 export const FarmerDashboardStyle = StyleSheet.create({
     dashboardContainer: {
         flex: 1,
-        backgroundColor: WHITE
+        backgroundColor: WHITE,
     },
     mainView: {
-        marginHorizontal: 20,      
+        backgroundColor: 'red',
+        marginHorizontal: 20,
+        marginBottom: -30
     },
     flexView: {
         marginVertical: 5,
@@ -22,6 +24,9 @@ export const FarmerDashboardStyle = StyleSheet.create({
     },
     AddUserbtnStyle: {
         marginVertical: 5,
+    },
+    productView: {
+        marginVertical: 145
     },
     searchView: {
         marginVertical: 5,
@@ -49,10 +54,23 @@ export const FarmerDashboardStyle = StyleSheet.create({
         color: GREY,
         fontSize: 14,
     },
+    activeDotStyle: {
+        width: 23,
+        backgroundColor: MDBLUE,
+        marginBottom: heightPercentageToDP(10),
+        marginLeft: heightPercentageToDP(1),
+        marginRight: heightPercentageToDP(1)
+    },
     remarkTextStyle: {
         fontSize: 14,
         color: GREY,
         marginHorizontal: 10
+    },
+    dotStyle: {
+        backgroundColor: LIGHTGREY,
+        marginBottom: heightPercentageToDP(10),
+        marginLeft: heightPercentageToDP(1),
+        marginRight: heightPercentageToDP(1)
     },
     buttonStyle: {
         marginHorizontal: 10,
@@ -125,7 +143,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         marginTop: heightPercentageToDP(15),
     },
     containerImg: {
-        position: "absolute",     
+        position: "absolute",
         borderRadius: 10
     },
     containerImglastText: {
@@ -133,7 +151,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         bottom: 0,
         backgroundColor: 'green',
         height: 30,
-        justifyContent: 'center',     
+        justifyContent: 'center',
         borderRadius: 10
     },
     farmerImg: {
@@ -185,11 +203,12 @@ export const FarmerDashboardStyle = StyleSheet.create({
     textInputContainer: {
         height: 40,
         color: BLACK,
+        marginHorizontal:30
     },
     rightLeftBoxContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingVertical: 10,        
+        paddingVertical: 10,
     },
     imageContainer: {
         borderWidth: 0.5,

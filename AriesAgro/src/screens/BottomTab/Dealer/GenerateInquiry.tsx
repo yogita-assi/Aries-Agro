@@ -13,12 +13,11 @@ import CustomButton from "../../../components/button/CustomButton";
 const GenerateInquiry = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     return (
-        <SafeAreaView style={DealerScreenStyle.mainInquiryView}>
+        <SafeAreaView style={DealerScreenStyle.mainInquiryView} >
             <View style={DealerScreenStyle.textInquiry}>
-                <CustomTextInput style={DealerScreenStyle.textEnterView}> Details</CustomTextInput>
+                <CustomTextInput multiline style={DealerScreenStyle.textEnterView}>Details</CustomTextInput>
             </View>
             <CustomButton label={"Submit"} />
-
         </SafeAreaView>
     )
 }

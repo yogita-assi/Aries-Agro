@@ -18,7 +18,7 @@ import AccountInventory from "../../../svg/AccountSvg/AccountInventory";
 import AccountReprensntative from "../../../svg/AccountSvg/AccountReprensntative";
 import AccountContact from "../../../svg/AccountSvg/AccountContact";
 import AccountFeedback from "../../../svg/AccountSvg/AccountFeedback";
-import AccountRate from "../../../svg/AccountSvg/AccountRate";
+// import AccountRate from "../../../svg/AccountSvg/AccountRate";
 import AccountTermsAndCondition from "../../../svg/AccountSvg/AccountTermsAndCondition";
 import AccountPrivacyPolicy from "../../../svg/AccountSvg/AccountPrivacyPolicy";
 import AccountVersion from "../../../svg/AccountSvg/AccountVersion";
@@ -62,10 +62,10 @@ const Accounts = () => {
                 <AccountFeedback height={23} width={40} />
                 <TextArchivoBold style={accountStyle.txtAccountName}>Feedback</TextArchivoBold>
             </View>
-            <View style={accountStyle.accountDetailsName}>
+            {/* <View style={accountStyle.accountDetailsName}>
                 <AccountRate height={23} width={40} />
                 <TextArchivoBold style={accountStyle.txtAccountName}>Rate Us</TextArchivoBold>
-            </View>
+            </View> */}
             <View style={accountStyle.accountDetailsName}>
                 <AccountTermsAndCondition height={23} width={40} />
                 <TextArchivoBold style={accountStyle.txtAccountName}>Terms & Conditions</TextArchivoBold>
