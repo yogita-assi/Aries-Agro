@@ -30,7 +30,7 @@ const ProductDetailsScreen = () => {
     };
     useEffect(() => {
         productList()
-    }, [searchText])
+    }, [searchText, pageNumber])
     const onEndReached = () => {
         if (!refreshing && totalPages !== pageNumber) {
             setPageNumber(pageNumber + 1)
