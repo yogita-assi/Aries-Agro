@@ -15,6 +15,8 @@ import { LIGHTGREY, WHITE } from '../../shared/constants/color';
 import { OTP_SCREEN } from '../../routes/Routes';
 import loginApi from '../../api/loginApi';
 import LoginSvg from '../../svg/LoginSvg';
+import { TouchableOpacity } from 'react-native';
+import { Linking } from 'react-native';
 
 const SignIn: React.FC = () => {
     const [formValue, setFormValue] = useState({ countryCode: '+91', phoneNumber: '' });
@@ -48,7 +50,10 @@ const SignIn: React.FC = () => {
         setErrorMsg(validFormValues);
         return isValid;
     }
-
+    const handlePrivacyPolicyClick = () => {
+        const url = 'https://ariesagro.com/privacy-policy/';
+        Linking.openURL(url);
+    }
     const onSubmit = async () => {
         if (validate()) {
             return
@@ -107,7 +112,9 @@ const SignIn: React.FC = () => {
                     </View>
                     <TextArchivoBold style={signInStyle.txtPrivacyPolicy}>
                         By joining you accept the
-                        <TextArchivoBold style={signInStyle.txtPrivacy}> Privacy Policy,</TextArchivoBold> and  <TextArchivoBold style={signInStyle.txtPrivacy}>Terms of Use</TextArchivoBold>
+                        <TouchableOpacity>
+                            <TextArchivoBold style={signInStyle.txtPrivacy} onPress={handlePrivacyPolicyClick}> Privacy Policy
+                                ,</TextArchivoBold></TouchableOpacity> and  <TextArchivoBold style={signInStyle.txtPrivacy}>Terms of Use</TextArchivoBold>
                     </TextArchivoBold>
                 </View>
             </KeyboardAwareScrollView>

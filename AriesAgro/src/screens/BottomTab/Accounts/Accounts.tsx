@@ -24,6 +24,7 @@ import AccountPrivacyPolicy from "../../../svg/AccountSvg/AccountPrivacyPolicy";
 import AccountVersion from "../../../svg/AccountSvg/AccountVersion";
 import AccoountSetting from "../../../svg/AccountSvg/AccoountSetting";
 import { PROFILE_SCREEN } from "../../../routes/Routes";
+import AccountImage from "../../../svg/AccountSvg/AccountImage";
 
 const Accounts = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -31,7 +32,7 @@ const Accounts = () => {
         <SafeAreaView style={accountStyle.mainCardView}>
             <TextArchivoBold style={accountStyle.txtShopName}>Krushi Fertilizers</TextArchivoBold>
             <StatusBar backgroundColor={WHITE} barStyle={"dark-content"} />
-            <ProductImage height={80} width={150} />
+            <AccountImage height={90} width={150} />
             <View style={accountStyle.mainAccountDetails}>
                 <AccountNameImage height={23} width={40} />
                 <TextArchivoBold style={accountStyle.txtAccountName}>Datta Shinde</TextArchivoBold>
