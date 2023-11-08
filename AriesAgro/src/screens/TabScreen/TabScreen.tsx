@@ -16,6 +16,9 @@ import HomeIcon from '../../svg/HomeIcon';
 import OrderIconFill from '../../svg/OrderIconFill';
 import ProductsIconFill from '../../svg/ProductsIconFill';
 import AccountIconFill from '../../svg/AccountIconFill';
+import DealerRegistrationScreen from '../Dealer/DealerRegistrationScreen';
+import DealerIconFill from '../../svg/DealerIconFill';
+import DealerIcon from '../../svg/DealerIcon';
 import Accounts from '../BottomTab/Accounts/Accounts';
 
 const Tab = createBottomTabNavigator()
@@ -36,17 +39,13 @@ const TabScreen = () => {
                     )
                 }}
             />
-
-            <Tab.Screen name="Order" component={OrderScreen}
+           
+            <Tab.Screen name="Dealer" component={DealerScreen}
                 options={{
-                    tabBarIcon: ({ color, size, focused }) => (focused ? <OrderIconFill width={24} height={45} /> : <OrderIcon width={60} height={25} />
+                    tabBarIcon: ({ color, size, focused }) => (focused ? <DealerIconFill width={90} height={80} /> : <DealerIcon width={45} height={50} />
                     )
                 }} />
-            {/* <Tab.Screen name="Revenue" component={ProductDetailsScreen}
-                options={{
-                    tabBarIcon: ({ color, size, focused }) => (<RevenueIcon width={70} height={70}/>
-                    )
-                }} /> */}
+          
             <Tab.Screen name="Products" component={ProductDetailsScreen}
                 options={{
                     tabBarIcon: ({ color, size, focused }) => (focused ? <ProductsIconFill width={55} height={45} /> : <ProductsIcon width={25} height={40} />

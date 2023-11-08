@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { WHITE } from '../shared/constants/color';
-import { FARMERDASHBOARD, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN, TAB_SCREEN, PRODUCT_DETAILS, VIEW_PRODUCT_DETAILS, DEALER_REGISTRATION, DEALER_APPROVAL, CHOOSE_INTEREST, PRODUCT_SCREEN, PROFILE_SCREEN, SIMILAR_PRODUCT } from './Routes';
+import { FARMERDASHBOARD, REGESTRATION_SCREEN, SELECT_TYPE_SCREEN, SIGIN_SCREEN, TAB_SCREEN, PRODUCT_DETAILS, VIEW_PRODUCT_DETAILS, DEALER_REGISTRATION, DEALER_APPROVAL, CHOOSE_INTEREST, PRODUCT_SCREEN, PROFILE_SCREEN, SIMILAR_PRODUCT,GENERATE_INQUIRY } from './Routes';
 import SelectTypeScreen from '../screens/SelectType/SelectTypeScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 import FarmerDashboard from '../screens/dashboard/FarmerDashboard';
@@ -16,6 +16,7 @@ import DealerApprovalScreen from '../screens/Dealer/DealerApprovalScreen';
 import ChooseInterestScreen from '../screens/ChooseInterestScreen';
 import ProfileScreen from '../screens/BottomTab/Accounts/ProfileScreen';
 import SimilarProductScreen from '../screens/ProductScreen/SimilarProductScreen';
+import GenerateInquiry from '../screens/BottomTab/Dealer/GenerateInquiry';
 
 export type RootStackParamList = {
     SelectTypeScreen: any,
@@ -30,6 +31,7 @@ export type RootStackParamList = {
     ChooseInterestScreen: any
     ProfileScreen: any
     SimilarProductScreen: any
+    GenerateInquiry: any
 }
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator()
@@ -52,6 +54,7 @@ function AppRouter(): JSX.Element {
                         <RootStack.Screen name={DEALER_APPROVAL} options={{ headerShown: false }} component={DealerApprovalScreen} />
                         <RootStack.Screen name={PROFILE_SCREEN} options={{ headerShown: false }} component={ProfileScreen} />
                         <RootStack.Screen name={SIMILAR_PRODUCT} options={{ headerShown: false }} component={SimilarProductScreen} />
+                        <RootStack.Screen name={GENERATE_INQUIRY} options={{ headerShown: false }} component={GenerateInquiry} />
                     </>
 
                 ) : (

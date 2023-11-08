@@ -4,6 +4,28 @@ export const VIEW_TEXT = "View";
 export const DATE_FORMAT_PLACE = "YYYY-MM-DD";
 export const productData = [
     {
+        "name": "Krushi Furtilizers",
+        "address": "Baner, Pune 411045",
+        "rating": "****"
+    },
+    {
+        "name": "Krushi Furtilizers",
+        "address": "Baner, Pune 411045",
+        "rating":  "****"
+    },
+    {
+        "name": "Krushi Furtilizers",
+        "address": "Baner, Pune 411045",
+        "rating":  "****"
+    },
+    {
+        "name": "Krushi Furtilizers",
+        "address": "Baner, Pune 411045",
+        "rating":  "****"
+    },
+]
+export const productData1 = [
+    {
         "name": "Plant Protection",
         "information": "Checkout a range of highly productive plant protection products that can be used for protecting complete farms and crops from all kinds of threats",
         "rating": 4.5
