@@ -84,7 +84,7 @@ const RegistrationScreen = () => {
             return
         }
         const requestBody = {
-            email: "shitalmska12@gmail.com",
+            email: "shidda1@gmail.com",
             phoneNumber: formValue?.mobileNumber,
             roleId: 8,
             firstName: formValue?.firstName,
@@ -101,7 +101,6 @@ const RegistrationScreen = () => {
         try {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
-            console.log(response?.data, "data")
             if (response?.data) {
                 await AsyncStorage.setItem(ASYNC_STORAGE.ACCESSTOKEN, response?.data?.data?.accessToken);
                 navigation.navigate(CHOOSE_INTEREST)
