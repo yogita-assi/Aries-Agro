@@ -11,15 +11,12 @@ import { useNavigation } from "@react-navigation/native";
 import CustomTextInput from "../components/inputs/CustomTextInput";
 import CustomFontText from "../fontfamily/CustomFontText";
 import { registrationStyle } from "./style/registrationStyle";
-import { CHOOSE_INTEREST, CHOOSE_YOUR_INTREST, FARMERDASHBOARD, TAB_SCREEN } from "../routes/Routes";
-import { PRODUCT_DETAILS } from "../routes/Routes";
-import { ADDRESS_REGEX, WORD_WITH_SPACE_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
+import { CHOOSE_INTEREST } from "../routes/Routes";
+import { ADDRESS_REGEX, NUMBER_REGEX, PINCODE_REGEX, WORD_WITH_SPACE_REGEX, regex } from "../shared/constants/regular-expressions-utilities";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../guards/AuthNavigator";
 import loginApi from "../api/loginApi";
 import { useModalContext } from "../modalContext/ModalContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ASYNC_STORAGE } from "../shared/constants/infoMsgStrings";
 
 const RegistrationScreen = () => {
     const navigation: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -29,30 +26,37 @@ const RegistrationScreen = () => {
         firstName: "",
         lastName: "",
         address: "",
-        mobileNumber: ""
+        mobileNumber: "",
+        pinCode: ""
     })
     const [errorMsg, setErrorMsg]: any = useState({
         firstName: null,
         lastName: null,
         address: null,
-        mobileNumber: null
+        mobileNumber: null,
+        pinCode: null
     })
     const onChangeFormName = (name: any, text: any) => {
         const trimmedText = text.replace(WORD_WITH_SPACE_REGEX, "").trim();
         setFormValue({ ...formValue, [name]: trimmedText });
         setErrorMsg({ ...errorMsg, [name]: trimmedText ? null : errorMsg[name] });
     }
-    const onChangeInput = (event: any, name: any) => {
-        const { text } = event.nativeEvent;
-        setFormValue({ ...formValue, [name]: text.replace(/\D/g, "") });
-        setErrorMsg({ ...errorMsg, mobileNumber: null });
+    const onChangeForm = (name: any, text: any, isNumber = false) => {
+        if (isNumber) {
+            setFormValue({ ...formValue, [name]: text.replace(NUMBER_REGEX, "") });
+            setErrorMsg({ ...errorMsg, [name]: text ? null : errorMsg[name] });
+        } else {
+            setFormValue({ ...formValue, [name]: text });
+            setErrorMsg({ ...errorMsg, [name]: text ? null : errorMsg[name] });
+        }
     }
     const validate = () => {
         const validFormValues = {
             firstName: "",
             lastName: "",
             mobileNumber: "",
-            address: ""
+            address: "",
+            pinCode: ""
         };
         let isValid = false;
         if (formValue.firstName.length == 0) {
@@ -67,8 +71,8 @@ const RegistrationScreen = () => {
             validFormValues.address = "Please enter valid address"
             isValid = true;
         }
-        if ((!formValue.mobileNumber || formValue.mobileNumber.length <= 9)) {
-            validFormValues.mobileNumber = "Please enter a valid 10 digit mobile number";
+        if ((formValue.pinCode.length == 0 || !PINCODE_REGEX.test(formValue.pinCode.toString()))) {
+            validFormValues.pinCode = "Please enter valid Pincode Number"
             isValid = true;
         }
         if (formValue.mobileNumber && !regex.test(formValue.mobileNumber.toString())) {
@@ -83,23 +87,16 @@ const RegistrationScreen = () => {
             return
         }
         const requestBody = {
-            email: "shidda1@gmail.com",
-            phoneNumber: formValue?.mobileNumber,
             roleId: 8,
             firstName: formValue?.firstName,
-            middleName: "",
             lastName: formValue?.lastName,
-            photo: "",
-            bio: "",
-            isActive: true,
-            deleted: false,
-            joiningDate: 2023 - 11 - 2,
-            department: "",
-            reportingTo: ""
+            address: formValue?.address,
+            pincode: formValue?.pinCode
         }
         try {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
+            console.log(response?.data, "data")
             if (response?.data) {
                 navigation.navigate(CHOOSE_INTEREST)
             }
@@ -151,22 +148,6 @@ const RegistrationScreen = () => {
                     }
                     <CustomTextInput
                         mode="outlined"
-                        label="Enter Mobile Number"
-                        style={registrationStyle.inputText}
-                        outlineColor={JPURPLE}
-                        maxLength={10}
-                        keyboardType="numeric"
-                        value={formValue?.mobileNumber}
-                        onChange={(e: any) => onChangeInput(e, 'mobileNumber')}
-                        error={errorMsg.mobileNumber}
-                    />
-                    {errorMsg.mobileNumber &&
-                        <View style={registrationStyle.formTxt}>
-                            <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.mobileNumber}</CustomFontText>
-                        </View>
-                    }
-                    <CustomTextInput
-                        mode="outlined"
                         label="Enter Address"
                         style={registrationStyle.inputText}
                         outlineColor={JPURPLE}
@@ -178,6 +159,21 @@ const RegistrationScreen = () => {
                     {errorMsg.address &&
                         <View style={registrationStyle.formTxt}>
                             <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.address}</CustomFontText>
+                        </View>
+                    }
+                    <CustomTextInput
+                        mode="outlined"
+                        label="Enter Pincode"
+                        style={registrationStyle.inputText}
+                        maxLength={6}
+                        keyboardType="numeric"
+                        value={formValue?.pinCode}
+                        onChangeText={(event: any) => onChangeForm("pinCode", event, true)}
+                        error={errorMsg.pinCode}
+                    />
+                    {errorMsg.pinCode &&
+                        <View style={registrationStyle.formTxt}>
+                            <CustomFontText style={registrationStyle.erroFormTxt}>{errorMsg.pinCode}</CustomFontText>
                         </View>
                     }
                     <View style={registrationStyle.btnGenerateOtp}>
