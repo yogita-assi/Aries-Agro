@@ -83,30 +83,21 @@ const DealerRegistrationScreen = () => {
         return isValid;
     }
     const onSubmit = async () => {
-        navigation.navigate(DEALER_APPROVAL)
         if (validate()) {
             return
         }
         const requestBody = {
-            email: "",
-            phoneNumber: formValue?.panNumber,
-            roleId: 4,
+            roleId: 7,
             firstName: formValue?.firstName,
-            middleName: "",
             lastName: formValue?.lastName,
-            photo: "",
-            bio: "",
-            isActive: true,
-            deleted: false,
-            joiningDate: 2023 - 11 - 2,
-            department: "",
-            reportingTo: ""
+            address: formValue?.address,
+            pincode: formValue?.pinCode
         }
         try {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
             if (response?.data) {
-                navigation.navigate(TAB_SCREEN)
+                navigation.navigate(DEALER_APPROVAL)
             }
         } catch (error: any) {
             openModal(error?.response?.data);

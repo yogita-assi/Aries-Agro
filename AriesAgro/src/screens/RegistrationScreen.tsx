@@ -96,7 +96,6 @@ const RegistrationScreen = () => {
         try {
             setLoader(true);
             const response = await loginApi.registerUser(requestBody);
-            console.log(response?.data, "data")
             if (response?.data) {
                 navigation.navigate(CHOOSE_INTEREST)
             }
