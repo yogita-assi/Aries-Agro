@@ -11,17 +11,17 @@ export const productData = [
     {
         "name": "Krushi Furtilizers",
         "address": "Baner, Pune 411045",
-        "rating":  "****"
+        "rating": "****"
     },
     {
         "name": "Krushi Furtilizers",
         "address": "Baner, Pune 411045",
-        "rating":  "****"
+        "rating": "****"
     },
     {
         "name": "Krushi Furtilizers",
         "address": "Baner, Pune 411045",
-        "rating":  "****"
+        "rating": "****"
     },
 ]
 export const productData1 = [
@@ -46,3 +46,32 @@ export const productData1 = [
         "rating": 4.2
     },
 ]
+export const salesData = [
+    {
+        "order": "Total Orders",
+        "invoiceGenerated": "Invoice Generated",
+        "dispatched": "Dispatched",
+        "totalOrder": "2000",
+        "totalInvoice": "150",
+        "totalDispatched": "90",
+        "pendingOrders": "Total Orders",
+        "approvalNeeded": "Invoice Generated",
+        "totalPendingOrders": "20",
+        "totalApproval": "40"
+    },
+]
+export const OrderData = [{
+    "totalOrders": "1000",
+    "pendingOrders": "90",
+    "delivered": "800",
+}]
+export const orderListData = [{
+    "productCode": '#45670',
+    "totalValue": 'TotalValue',
+    "productName": 'Product1',
+    "productPrize": 'Rs 1000',
+    "date": '23-10-23',
+    'productItem': '10',
+    'invoiceGenerated': 'Invoice Generated',
+    'status': 'Approved'
+}]
