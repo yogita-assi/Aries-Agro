@@ -20,6 +20,7 @@ import DealerRegistrationScreen from '../Dealer/DealerRegistrationScreen';
 import DealerIconFill from '../../svg/DealerIconFill';
 import DealerIcon from '../../svg/DealerIcon';
 import Accounts from '../BottomTab/Accounts/Accounts';
+import SalesDashboard from '../SalesDashboard';
 
 const Tab = createBottomTabNavigator()
 const TabScreen = () => {
@@ -33,12 +34,18 @@ const TabScreen = () => {
             headerShown: false
 
         }}>
-            <Tab.Screen name="Home" component={FarmerDashboard}
+              <Tab.Screen name="Home" component={SalesDashboard}
                 options={{
                     tabBarIcon: ({ color, size, focused }) => (focused ? <HomeIconFill width={70} height={45} /> : <HomeIcon width={70} height={45} />
                     )
                 }}
             />
+            {/* <Tab.Screen name="Home" component={FarmerDashboard}
+                options={{
+                    tabBarIcon: ({ color, size, focused }) => (focused ? <HomeIconFill width={70} height={45} /> : <HomeIcon width={70} height={45} />
+                    )
+                }}
+            /> */}
            
             <Tab.Screen name="Dealer" component={DealerScreen}
                 options={{

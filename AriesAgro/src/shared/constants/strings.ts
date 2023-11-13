@@ -46,3 +46,17 @@ export const productData1 = [
         "rating": 4.2
     },
 ]
+export const salesData = [
+    {
+        "order": "Total Orders",
+        "invoiceGenerated": "Invoice Generated",
+        "dispatched": "Dispatched",
+        "totalOrder": "2000",
+        "totalInvoice": "150",
+        "totalDispatched": "90",
+        "pendingOrders": "Total Orders",
+        "approvalNeeded": "Invoice Generated",
+        "totalPendingOrders": "20",
+        "totalApproval": "40"
+    },
+]

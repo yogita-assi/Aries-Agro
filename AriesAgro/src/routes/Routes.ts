@@ -16,4 +16,5 @@ export const DEALER_APPROVAL = "DealerApprovalScreen"
 export const CHOOSE_INTEREST = "ChooseInterestScreen"
 export const GENERATE_INQUIRY="GenerateInquiry"
 export const PROFILE_SCREEN = "ProfileScreen"
-export const SIMILAR_PRODUCT = "SimilarProductScreen"
+export const SIMILAR_PRODUCT = "SimilarProductScreen";
+export const SALES_DASHBOARD="SalesDashboard"

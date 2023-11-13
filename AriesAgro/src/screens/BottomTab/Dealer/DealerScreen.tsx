@@ -90,39 +90,10 @@ const DealerScreen = () => {
                     <CustomFontText style={DealerScreenStyle.textStyle1}>{item?.rating}</CustomFontText>
                 </View>
             </View>
-            <View style={DealerScreenStyle.iconView}>
-                <PressableClick style={DealerScreenStyle.buttonView}>
-                    <DirectionIcon height={25} width={25} />
-                    <TextArchivoBold style={DealerScreenStyle.textView}>Direction</TextArchivoBold>
-                </PressableClick>
-                <PressableClick style={DealerScreenStyle.buttonView}
-                 onPress={() => handleInquiry()}>
-                    <InquiryIcon height={25} width={25} />
-                    <TextArchivoBold style={DealerScreenStyle.textView}>Generate Inquiry</TextArchivoBold>
-                </PressableClick>
-            </View>
         </View>
     );
     return (
         <SafeAreaView style={DealerScreenStyle.mainCardView}>
-            <View style={DealerScreenStyle.textInputContainer}>
-                <Pressable
-                    style={DealerScreenStyle?.gobackStyle}
-                    onPress={() => navigation.goBack()}>
-                    <BackButtonIcon width={30} height={20} />
-                </Pressable>
-                <TextInput
-                    placeholder="Search"
-                    placeholderTextColor={BLACK}
-                    style={{ ...DealerScreenStyle.textInput }}
-                    value={searchText}
-                    onChangeText={(e: any) => handleSearchInputChange(e)}
-                />
-            </View>
-            <Pressable style={DealerScreenStyle.contentView}>
-                <DirectionIcon height={25} width={25} />
-                <TextArchivoBold style={DealerScreenStyle.infoText}>Search recommended by dealer’s location</TextArchivoBold>
-                </Pressable>
             <View style={{ flex: 1 }}>
                 <FlatList
                     data={productData}

@@ -100,6 +100,8 @@ export const DealerScreenStyle = StyleSheet.create({
         borderColor: MERCURY,
         paddingHorizontal: 10,
         marginHorizontal: 20,
+        flexDirection:'row',
+        justifyContent:'space-between'
     },
     area: {
         flex: 1,

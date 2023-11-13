@@ -4,15 +4,10 @@ import { ArchivoBold, BLACK, GRAY_BORDER, GREEN, GREY, GREY_BORDER, JPURPLE, LIG
 import { FONT_ELEVEN } from '../../shared/constants/FontConstant';
 
 
-export const FarmerDashboardStyle = StyleSheet.create({
+export const salesDashboardStyle = StyleSheet.create({
     dashboardContainer: {
         flex: 1,
         backgroundColor: WHITE,
-    },
-    mainView: {
-        backgroundColor: 'red',
-        marginHorizontal: 20,
-        marginBottom: -30
     },
     flexView: {
         marginVertical: 5,
@@ -79,7 +74,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     profileDetailsContainer: {
-        backgroundColor: "white",
+        backgroundColor:WHITE,
         paddingHorizontal: 25,
         flexDirection: 'row',
         alignItems: 'center'
@@ -111,7 +106,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         color: JPURPLE,
-        marginHorizontal:30,
+        alignSelf:'center'
     },
     txtCreateNewOrder:{
         fontSize: 16,
@@ -120,15 +115,15 @@ export const FarmerDashboardStyle = StyleSheet.create({
         textDecorationLine:'underline',
         marginTop:10,
         marginHorizontal:30,
+        fontWeight:'bold'
     },
     profilePic: {
-        marginLeft: 20,
-        flexDirection: 'row'
+        marginHorizontal: 20,
+        flexDirection: 'row',
     },
     notification: {
         flexDirection: 'row',
-        marginHorizontal: 90,
-        marginBottom: 20
+        marginBottom: 20,
     },
     profileIcon: {
         flexDirection: 'row'
@@ -166,7 +161,7 @@ export const FarmerDashboardStyle = StyleSheet.create({
     farmerImg: {
         position: "absolute",
         height: "100%",
-        marginHorizontal: 33
+        marginHorizontal: 30
     },
     imgText: {
         color: WHITE,
